@@ -42,7 +42,7 @@ class Adder implements Runnable	{
 }
 
 public class MainClass	{
-	
+		
 	public static void main(String []args)	{
 		Scanner in = new Scanner(System.in);
 		Random rand = new Random();
@@ -62,28 +62,46 @@ public class MainClass	{
 		col = rand.nextInt(20);
 
 		A = new int[row][col];
-
 		R = new int[row];
 		
-//		System.out.print("\n Enter the elements of matrix-A: ");
+		//Populate matrix using random values
 		for(i = 0; i < row; i++)	{
 			for(j = 0; j < col; j++)	{
 				A[i][j] = rand.nextInt(20);
 			}
 		}
  
-		System.out.println("\n Matrix A[" + row + "] [" + col + "]: ");
+		//Display matrix
+		System.out.println("\n Matrix A[" + row + "][" + col + "]: ");
 		for(i = 0; i < row; i++)	{
 			System.out.print("\n");
 			for(j = 0; j < col; j++)	{
 				System.out.print(" " + A[i][j]);
 			}
 		}
-
-		//compute sum
-
-		add = new Adder[row];
 		
+		//compute sum without using thread
+		startTime = System.nanoTime();
+		for(i = 0; i < row; i++)	{
+			for(j = 0; j < col; j++)	{
+				R[i] += A[i][j];
+			}
+		}
+		
+		System.out.println("\n Sum of rows: ");
+		for(i = 0; i < row; i++)	{
+			System.out.print("\n");
+			System.out.print(" " + R[i] );
+		}
+		
+		totTime = System.nanoTime() - startTime;
+		
+		System.out.println("\n Time taken sequentially: " + totTime);
+		
+		
+		//compute sum using thread
+		add = new Adder[row];
+
 		startTime = System.nanoTime();
 		for(i = 0; i < row; i++)	{
 			for(j = 0; j < col; j++)	{
@@ -91,25 +109,24 @@ public class MainClass	{
 			}
 		}
 		
-		startTime = System.nanoTime();
+		//wait for all threads to finish
 		for(i = 0; i < row; i++)	{
 			try {
 				add[i].T.join();				
 			}
 			catch (Exception E)		{	}
 		}
-		
+	
 		totTime = System.nanoTime() - startTime;
 		
-		
-	
+			
 		System.out.println("\n Sum of rows: ");
 		for(i = 0; i < row; i++)	{
 			System.out.print("\n");
 			System.out.print(" " + add[i].getSum() );
 		}
 		
-		System.out.println("\n Time taken: " + totTime);
+		System.out.println("\n Time taken using thread: " + totTime);
 
 	}
 }
