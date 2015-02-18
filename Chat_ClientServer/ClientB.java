@@ -6,7 +6,7 @@ import java.util.*;
 import java.io.*;	//to use the IO classes
 import java.net.*;	//to use the socket functionalities
 
-public class ClientA	{
+public class ClientB	{
 	public static void main(String args[]) throws UnknownHostException, 
 													IOException{
 //		final int PORT_NUMBER = 4005;

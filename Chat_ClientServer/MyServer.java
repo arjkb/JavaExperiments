@@ -64,13 +64,13 @@ class ChatHandler implements Runnable 	{
 public class MyServer	{
 	public static void main(String args[])	{
 	
-		final int PORT_NUMBER = 4004;
+//		final int PORT_NUMBER = 4005;
 
 		ServerSocket SS;
 		Socket s;
 
 		try	{
-			SS = new ServerSocket(PORT_NUMBER);
+			SS = new ServerSocket( glob.getPortNumber() );
 
 			while(true)	{
 				s = SS.accept();
