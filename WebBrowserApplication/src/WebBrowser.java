@@ -24,7 +24,7 @@ public class WebBrowser extends javax.swing.JFrame {
         initComponents();
         
         jEditorPane1.setEditable(false);
-        url = getClass().getResource("http://www.google.com");
+        url = getClass().getResource("sample.html");
         
         if( url != null )   {
             try {
