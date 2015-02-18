@@ -1,3 +1,7 @@
+
+import java.io.IOException;
+import java.net.URL;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,15 +10,34 @@
 
 /**
  *
- * @author arjun
+ * @author Arjun Krishna Babu
  */
 public class WebBrowser extends javax.swing.JFrame {
 
     /**
      * Creates new form WebBrowser
      */
+    
+    URL url;
+    
     public WebBrowser() {
         initComponents();
+        
+        jEditorPane1.setEditable(false);
+        url = getClass().getResource("http://www.google.com");
+        
+        if( url != null )   {
+            try {
+                jEditorPane1.setPage(url);
+            } catch(IOException E)   {
+                System.out.println("\n Error!");
+            }
+        }
+        else    {
+            System.out.println("\n Cannot find page!");
+        }
+        
+        
     }
 
     /**
@@ -26,17 +49,28 @@ public class WebBrowser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jScrollPane1.setViewportView(jEditorPane1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -78,5 +112,7 @@ public class WebBrowser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
