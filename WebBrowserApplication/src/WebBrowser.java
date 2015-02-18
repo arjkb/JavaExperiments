@@ -1,6 +1,9 @@
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,11 +23,15 @@ public class WebBrowser extends javax.swing.JFrame {
     
     URL url;
     
-    public WebBrowser() {
+    public WebBrowser() throws MalformedURLException {
         initComponents();
         
         jEditorPane1.setEditable(false);
-        url = getClass().getResource("sample.html");
+  //      url = getClass().getResource("sample.html");
+        
+        url = new URL("http://www.google.com");
+        
+    //    url = new URL("sample.html");
         
         if( url != null )   {
             try {
@@ -106,7 +113,11 @@ public class WebBrowser extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new WebBrowser().setVisible(true);
+                try {
+                    new WebBrowser().setVisible(true);
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(WebBrowser.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
