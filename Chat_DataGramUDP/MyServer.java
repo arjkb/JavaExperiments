@@ -25,7 +25,9 @@ public class MyServer	{
 
 		s.receive(pack);
 
-		message = new String(pack.getData(), 0, pack.getLength() );
+		//experimentations
+//message = new String(pack.getData(), 0, pack.getLength() );
+		message = new String(pack.getData());
 
 		System.out.println("\n Client says: " + message);
 
