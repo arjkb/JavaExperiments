@@ -26,5 +26,10 @@ public class MyClient	{
 		
 		s.send(packet);	//send the packet to destination specified in its constructor
 
+		s.receive(packet);
+
+		message = new String(packet.getData(), 0, packet.getLength());
+
+		System.out.println("Reply: " + message);
 	}
 }

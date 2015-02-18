@@ -20,11 +20,19 @@ public class MyServer	{
 		DatagramSocket s = new DatagramSocket(PORT_NUMBER); 
 
 		DatagramPacket pack = new DatagramPacket(buffA, buffA.length);
+		
+
 
 		s.receive(pack);
 
 		message = new String(pack.getData(), 0, pack.getLength() );
 
 		System.out.println("\n Client says: " + message);
+
+	 	buffB = new String("That's cool!").getBytes();
+
+		DatagramPacket pack2 = new DatagramPacket(buffB, buffB.length, pack.getAddress(), pack.getPort());
+
+		s.send(pack2);
 	}
 }
