@@ -9,7 +9,7 @@ import java.net.*;	//to use the socket functionalities
 public class ClientA	{
 	public static void main(String args[]) throws UnknownHostException, 
 													IOException{
-		final int PORT_NUMBER = 4002;
+		final int PORT_NUMBER = 4004;
 		
 		Scanner keyboard = new Scanner(System.in);
 		Scanner in = null;
@@ -34,17 +34,16 @@ public class ClientA	{
 		}
 		
 		while( flag )	{
-			System.out.println("\n Enter message: ");
+			System.out.print("\n Enter message: ");
 			message = keyboard.nextLine();
-			
-			out.println("A: " + message);
+			out.println(message);
+
+			if( message.equals("bye") )	{
+				flag = false;
+			}
 			
 			if( in.hasNextLine() )	{
 				message = in.nextLine();
-				
-				if( message.equals("bye") )	{
-					flag = false;
-				}
 
 				System.out.println(message);
 			}

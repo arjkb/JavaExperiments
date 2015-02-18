@@ -37,7 +37,7 @@ class ChatHandler implements Runnable 	{
 		while( flag )	{
 			if( in.hasNextLine() )	{
 				message = in.nextLine();
-				System.out.print(message);
+				System.out.println(message);
 
 				if( message.equals("name") )	{
 					message = "Dell";
@@ -64,7 +64,7 @@ class ChatHandler implements Runnable 	{
 public class MyServer	{
 	public static void main(String args[])	{
 	
-		final int PORT_NUMBER = 4002;
+		final int PORT_NUMBER = 4004;
 
 		ServerSocket SS;
 		Socket s;
