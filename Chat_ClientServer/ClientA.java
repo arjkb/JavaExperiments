@@ -1,5 +1,5 @@
 /*
-	Program to implement a server
+	Program to implement a client
 */
 
 import java.util.*;
@@ -9,7 +9,7 @@ import java.net.*;	//to use the socket functionalities
 public class ClientA	{
 	public static void main(String args[]) throws UnknownHostException, 
 													IOException{
-		final int PORT_NUMBER = 4000;
+		final int PORT_NUMBER = 4002;
 		
 		Scanner keyboard = new Scanner(System.in);
 		Scanner in = null;
@@ -41,6 +41,11 @@ public class ClientA	{
 			
 			if( in.hasNextLine() )	{
 				message = in.nextLine();
+				
+				if( message.equals("bye") )	{
+					flag = false;
+				}
+
 				System.out.println(message);
 			}
 			

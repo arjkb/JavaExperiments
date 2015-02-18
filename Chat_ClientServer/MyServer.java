@@ -40,12 +40,23 @@ class ChatHandler implements Runnable 	{
 				System.out.print(message);
 
 				if( message.equals("name") )	{
-					out.println("Dell");
+					message = "Dell";
 				}
 				else if( message.equals("age") )	{
-					out.println("19");
+					message = "19";
 				}
+				else if( message.equals("bye") )	{
+					message = "Goodbye!";
+					flag = false;
+				}
+				else	{
+					message = "Received " + message;
+				}
+
+				out.println(message);
+
 			} //end of outer if
+		
 		} //end of outer while()
 	} //enf of run()
 }
@@ -53,7 +64,7 @@ class ChatHandler implements Runnable 	{
 public class MyServer	{
 	public static void main(String args[])	{
 	
-		final int PORT_NUMBER = 4000;
+		final int PORT_NUMBER = 4002;
 
 		ServerSocket SS;
 		Socket s;
