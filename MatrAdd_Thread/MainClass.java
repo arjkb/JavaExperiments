@@ -56,10 +56,10 @@ public class MainClass	{
 		long startTime, totTime;
 		
 		System.out.print("\n Enter row size: ");
-		row = rand.nextInt(20);
+		row = rand.nextInt(100);
 
 		System.out.print("\n Enter col size: ");
-		col = rand.nextInt(20);
+		col = rand.nextInt(100);
 
 		A = new int[row][col];
 		R = new int[row];
@@ -80,23 +80,7 @@ public class MainClass	{
 			}
 		}
 		
-		//compute sum without using thread
-		startTime = System.nanoTime();
-		for(i = 0; i < row; i++)	{
-			for(j = 0; j < col; j++)	{
-				R[i] += A[i][j];
-			}
-		}
-		
-		System.out.println("\n Sum of rows: ");
-		for(i = 0; i < row; i++)	{
-			System.out.print("\n");
-			System.out.print(" " + R[i] );
-		}
-		
-		totTime = System.nanoTime() - startTime;
-		
-		System.out.println("\n Time taken sequentially: " + totTime);
+
 		
 		
 		//compute sum using thread
@@ -104,9 +88,9 @@ public class MainClass	{
 
 		startTime = System.nanoTime();
 		for(i = 0; i < row; i++)	{
-			for(j = 0; j < col; j++)	{
+//			for(j = 0; j < col; j++)	{
 				add[i] = new Adder(A[i], col);
-			}
+//			}
 		}
 		
 		//wait for all threads to finish
@@ -127,6 +111,24 @@ public class MainClass	{
 		}
 		
 		System.out.println("\n Time taken using thread: " + totTime);
+		
+				//compute sum without using thread
+		startTime = System.nanoTime();
+		for(i = 0; i < row; i++)	{
+			for(j = 0; j < col; j++)	{
+				R[i] += A[i][j];
+			}
+		}
+		
+		System.out.println("\n Sum of rows: ");
+		for(i = 0; i < row; i++)	{
+			System.out.print("\n");
+			System.out.print(" " + R[i] );
+		}
+		
+		totTime = System.nanoTime() - startTime;
+		
+		System.out.println("\n Time taken sequentially: " + totTime);
 
 	}
 }
