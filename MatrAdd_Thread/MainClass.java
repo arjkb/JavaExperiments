@@ -56,10 +56,10 @@ public class MainClass	{
 		long startTime, totTime;
 		
 		System.out.print("\n Enter row size: ");
-		row = rand.nextInt(100);
+		row = rand.nextInt(20);
 
 		System.out.print("\n Enter col size: ");
-		col = rand.nextInt(100);
+		col = rand.nextInt(20);
 
 		A = new int[row][col];
 		R = new int[row];
@@ -104,7 +104,7 @@ public class MainClass	{
 		totTime = System.nanoTime() - startTime;
 		
 			
-		System.out.println("\n Sum of rows: ");
+		System.out.println("\n Sum of rows (thread): ");
 		for(i = 0; i < row; i++)	{
 			System.out.print("\n");
 			System.out.print(" " + add[i].getSum() );
@@ -120,7 +120,7 @@ public class MainClass	{
 			}
 		}
 		
-		System.out.println("\n Sum of rows: ");
+		System.out.println("\n Sum of rows (normal): ");
 		for(i = 0; i < row; i++)	{
 			System.out.print("\n");
 			System.out.print(" " + R[i] );
