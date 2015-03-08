@@ -1,6 +1,7 @@
 
 import java.awt.Button;
 import javax.swing.ButtonGroup;
+import javax.swing.JComboBox;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,6 +26,15 @@ public class MySwingComponents extends javax.swing.JFrame {
         raceGroup = new ButtonGroup();
         raceGroup.add(jRadioButton1);
         raceGroup.add(jRadioButton2);
+        
+       
+        jComboBox1.addItem("Camaro");
+        jComboBox1.addItem("Corvette");
+        jComboBox1.addItem("Ferrari");
+        jComboBox1.addItem("Lamborghini");
+        jComboBox1.addItem("Mustang");
+        jComboBox1.addItem("Porsche");
+        jComboBox1.addItem("Rolls Royce");
     }
 
     /**
@@ -61,7 +71,7 @@ public class MySwingComponents extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Item" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -108,7 +118,6 @@ public class MySwingComponents extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jRadioButton1)
@@ -119,7 +128,8 @@ public class MySwingComponents extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jCheckBox2)
                                 .addGap(18, 18, 18)
-                                .addComponent(jCheckBox3)))
+                                .addComponent(jCheckBox3))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 70, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -129,6 +139,8 @@ public class MySwingComponents extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox1)
                     .addComponent(jCheckBox2)
@@ -137,8 +149,6 @@ public class MySwingComponents extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton2))
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(50, 50, 50))
@@ -149,6 +159,8 @@ public class MySwingComponents extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
+        JComboBox cb = (JComboBox) evt.getSource();
+        System.out.println("ActionPerformed: " + cb.getSelectedItem() );
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
