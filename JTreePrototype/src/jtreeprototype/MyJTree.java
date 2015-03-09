@@ -62,7 +62,11 @@ public class MyJTree extends javax.swing.JFrame {
         //jTree1 = new JTree(node);
         jTree1.setModel(new DefaultTreeModel(country));
         
-        jTree1.addTreeExpansionListener( new MyTreeExpansionListener() );
+        jTree1.addTreeExpansionListener( new MyTreeExpansionListener(this) );
+    }
+    
+    public void setLabel(String label)  {
+        jLabel1.setText(label);
     }
 
     /**
@@ -76,12 +80,15 @@ public class MyJTree extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Countries : JTree Demo");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jScrollPane1.setViewportView(jTree1);
+
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,7 +97,9 @@ public class MyJTree extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,6 +107,10 @@ public class MyJTree extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,6 +152,7 @@ public class MyJTree extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
@@ -147,15 +161,22 @@ public class MyJTree extends javax.swing.JFrame {
 
 class MyTreeExpansionListener implements TreeExpansionListener  {
 
+    MyJTree mjt;
+            
+    MyTreeExpansionListener(MyJTree mjt)    {
+        this.mjt = mjt;       
+    }
+    
     @Override
     public void treeExpanded(TreeExpansionEvent tee) {
-        System.out.println(" Expanding: " + tee.getPath());
-        
+        System.out.println(" Expanding: " + tee.getPath());    
+        mjt.setLabel(" Expanding: " + tee.getPath());
     }
-
+    
     @Override
     public void treeCollapsed(TreeExpansionEvent tee) {
         System.out.println(" Collapsing: " + tee.getPath());
+        mjt.setLabel(" Collapsing: " + tee.getPath());
     }
     
 }
