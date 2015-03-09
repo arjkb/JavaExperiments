@@ -5,6 +5,9 @@
  */
 package jtreeprototype;
 
+import javax.swing.event.TreeExpansionEvent;
+import javax.swing.event.TreeExpansionListener;
+
 /**
  *
  * @author arjun

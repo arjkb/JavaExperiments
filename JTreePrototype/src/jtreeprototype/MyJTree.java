@@ -6,6 +6,8 @@
 package jtreeprototype;
 
 import javax.swing.JTree;
+import javax.swing.event.TreeExpansionEvent;
+import javax.swing.event.TreeExpansionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
@@ -105,4 +107,20 @@ public class MyJTree extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
+}
+
+
+class MyTreeExpansionListener implements TreeExpansionListener  {
+
+    @Override
+    public void treeExpanded(TreeExpansionEvent tee) {
+        System.out.println(tee.getPath());
+        
+    }
+
+    @Override
+    public void treeCollapsed(TreeExpansionEvent tee) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }
