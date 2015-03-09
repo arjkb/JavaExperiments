@@ -23,13 +23,46 @@ public class MyJTree extends javax.swing.JFrame {
     public MyJTree() {
         initComponents();
         
-        DefaultMutableTreeNode node = new DefaultMutableTreeNode("TOP");
+        DefaultMutableTreeNode country = new DefaultMutableTreeNode("Country");
+        DefaultMutableTreeNode c_brazil = new DefaultMutableTreeNode("Brazil");
+        DefaultMutableTreeNode c_russia = new DefaultMutableTreeNode("Russia");
+        DefaultMutableTreeNode c_india = new DefaultMutableTreeNode("India");
+        DefaultMutableTreeNode c_china = new DefaultMutableTreeNode("China");
+        DefaultMutableTreeNode c_sa = new DefaultMutableTreeNode("South Africa");
         
-        DefaultMutableTreeNode child = new DefaultMutableTreeNode("child"); 
+        DefaultMutableTreeNode ct_brz = new DefaultMutableTreeNode("Brazilia");
+        DefaultMutableTreeNode ct_rio = new DefaultMutableTreeNode("Rio De Janeiro");
+        DefaultMutableTreeNode ct_msc = new DefaultMutableTreeNode("Moscow");
+        DefaultMutableTreeNode ct_kzn = new DefaultMutableTreeNode("Kazan");
+        DefaultMutableTreeNode ct_mum = new DefaultMutableTreeNode("Mumbai");
+        DefaultMutableTreeNode ct_del = new DefaultMutableTreeNode("New Delhi");
+        DefaultMutableTreeNode ct_bjg = new DefaultMutableTreeNode("Beijing");
+        DefaultMutableTreeNode ct_shn = new DefaultMutableTreeNode("Shanghai");
+        DefaultMutableTreeNode ct_capt = new DefaultMutableTreeNode("Cape Town");
+        DefaultMutableTreeNode ct_prt = new DefaultMutableTreeNode("Pretoria");
         
-        node.add(child);
+        c_brazil.add(ct_brz);
+        c_brazil.add(ct_rio);
+        c_russia.add(ct_msc);
+        c_russia.add(ct_kzn);
+        c_india.add(ct_mum);
+        c_india.add(ct_del);
+        c_china.add(ct_bjg);
+        c_china.add(ct_shn);
+        c_sa.add(ct_capt);
+        c_sa.add(ct_prt);
+        
+        country.add(c_brazil);
+        country.add(c_russia);
+        country.add(c_india);
+        country.add(c_china);
+        country.add(c_sa);
+        
+        
         //jTree1 = new JTree(node);
-        jTree1.setModel(new DefaultTreeModel(node));
+        jTree1.setModel(new DefaultTreeModel(country));
+        
+        jTree1.addTreeExpansionListener( new MyTreeExpansionListener() );
     }
 
     /**
@@ -45,6 +78,8 @@ public class MyJTree extends javax.swing.JFrame {
         jTree1 = new javax.swing.JTree();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Countries : JTree Demo");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jScrollPane1.setViewportView(jTree1);
 
@@ -114,13 +149,13 @@ class MyTreeExpansionListener implements TreeExpansionListener  {
 
     @Override
     public void treeExpanded(TreeExpansionEvent tee) {
-        System.out.println(tee.getPath());
+        System.out.println(" Expanding: " + tee.getPath());
         
     }
 
     @Override
     public void treeCollapsed(TreeExpansionEvent tee) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println(" Collapsing: " + tee.getPath());
     }
     
 }
