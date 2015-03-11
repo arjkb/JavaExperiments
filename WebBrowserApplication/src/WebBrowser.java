@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  */
 
 /**
- *
+ * This should be cool
  * @author Arjun Krishna Babu
  */
 public class WebBrowser extends javax.swing.JFrame {
@@ -21,15 +21,17 @@ public class WebBrowser extends javax.swing.JFrame {
      * Creates new form WebBrowser
      */
     
-    URL url;
+    
     String address = null;
+    URL url;
     
     public WebBrowser() throws MalformedURLException {
         initComponents();
         
         jEditorPane1.setEditable(false);
   //      url = getClass().getResource("sample.html");
-        
+        //sdsd
+         
         address = null;
         url = new URL("http://www.google.com");
         

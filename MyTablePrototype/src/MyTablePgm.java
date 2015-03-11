@@ -15,6 +15,7 @@ public class MyTablePgm extends javax.swing.JFrame {
 
     /**
      * Creates new form MyTablePgm
+     * 
      */
     
     Object []colHeads;
