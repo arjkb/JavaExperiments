@@ -106,6 +106,8 @@ public class MyDbPgm {
                         id = text.nextLine();
                         searchRecord(id);
                         break;
+                case 0: System.out.println("\n Thank you for running this program!");
+                        break;
                 default: System.out.println("\n ERROR: Invalid Choice!");
             }
             
