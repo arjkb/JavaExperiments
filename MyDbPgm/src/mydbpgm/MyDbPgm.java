@@ -29,10 +29,10 @@ public class MyDbPgm {
         Connection con = null;
         Statement s = null;
         ResultSet rs = null;
-        
         PreparedStatement insStmt = null;
        
         String insString = "insert into VESPER.STUDENT(ID, NAME) values(?, ?)";
+        int affectedRowCount = 0;
        
         try {
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDemoDB", "vesper", "bond");
@@ -40,7 +40,7 @@ public class MyDbPgm {
             insStmt.setString(1, id); //add parameter to query
             insStmt.setString(2, name); //add parameter to query
             
-            insStmt.executeUpdate();
+            affectedRowCount = insStmt.executeUpdate();
             
         } catch(SQLException E) {
             System.out.println("SQL Exception!");
@@ -48,6 +48,8 @@ public class MyDbPgm {
         } catch(Exception E)    {
             System.out.println("\n Oops! Something went wrong!");
             E.printStackTrace();
+        } finally   {
+            System.out.println("\n " + affectedRowCount + " row(s) affected");
         }
     }
     
