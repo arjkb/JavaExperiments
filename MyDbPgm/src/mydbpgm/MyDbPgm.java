@@ -78,29 +78,32 @@ public class MyDbPgm {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner num = new Scanner(System.in);
+        Scanner text = new Scanner(System.in);
         
         int choice;
-        System.out.println("\n Hello World!");
-        
-        Connection con = null;
-        Statement s = null;
-        ResultSet rs = null;
-        
-        
+        String rch;
+        String id, name; 
+                       
         do {
-            System.out.println("\n 1: Insert student record");
-            System.out.println("\n 2: Search student record");
-            System.out.println("\n 0: QUIT");
-            System.out.println("\n Enter Your Choice: ");
+            rch = null;
+            
+            System.out.print("\n 1: Insert student record");
+            System.out.print("\n 2: Search student record");
+            System.out.print("\n 0: QUIT");
+            System.out.print("\n Enter Your Choice: ");
             choice = num.nextInt();
             switch(choice)  {
-                case 2: searchRecord("101");
+                case 2: System.out.print("\n Enter ID to search: ");
+                        id = text.nextLine();
+                        searchRecord(id);
                         break;
                 default: System.out.println("\n ERROR: Invalid Choice!");
             }
             
-        } while (choice != 0);
-/*        
+            System.out.print("\n Do you wish to run this program again? (Y/N): ");
+            rch = text.nextLine();
+        } while (rch.equals("y") || rch.equals("Y"));
+    /*        
         try {
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDemoDB", "vesper", "bond");
             s = con.createStatement();
