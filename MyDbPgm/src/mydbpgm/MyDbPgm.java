@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author arjun
+ * @author Arjun Krishna Babu
  */
 public class MyDbPgm {
 
@@ -51,25 +51,23 @@ public class MyDbPgm {
         ResultSet rs = null;
         
         PreparedStatement searchStmt = null;
-        
-//        String searchString = "select * from VESPER.STUDENT where ID like \'" + id +"\'";
-        
+       
         String searchString = "select * from VESPER.STUDENT where ID like ?";
        
         try {
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDemoDB", "vesper", "bond");
             searchStmt = con.prepareStatement(searchString);
             searchStmt.setString(1, id);
-            //rs = s.executeQuery("select * from VESPER.STUDENT");
-            
+                        
             rs = searchStmt.executeQuery();
             if(rs.next())   {
                 System.out.println("\n Name: " + rs.getString(2));
             }
-       
-            
         } catch(SQLException E) {
             System.out.println("SQL Exception!");
+            E.printStackTrace();
+        } catch(Exception E)    {
+            System.out.println("\n Oops! Something went wrong!");
             E.printStackTrace();
         }
     }
@@ -103,21 +101,6 @@ public class MyDbPgm {
             System.out.print("\n Do you wish to run this program again? (Y/N): ");
             rch = text.nextLine();
         } while (rch.equals("y") || rch.equals("Y"));
-    /*        
-        try {
-            con = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDemoDB", "vesper", "bond");
-            s = con.createStatement();
-            rs = s.executeQuery("select * from VESPER.STUDENT");
-            
-            while(rs.next())
-                System.out.println("\n Result: " + rs.getString(2));
-                 
-            
-        } catch(SQLException E) {
-            System.out.println("SQL Exception!");
-            E.printStackTrace();
-        }
-*/       
-    }
-    
+
+    } //end of main
 }
