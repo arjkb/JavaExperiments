@@ -100,7 +100,11 @@ public class MyDbPgm {
             System.out.print("\n Enter Your Choice: ");
             choice = num.nextInt();
             switch(choice)  {
-                case 1: insertRecord("105", "Riddle");
+                case 1: System.out.print("\n Enter ID to insert: ");
+                        id = text.nextLine();
+                        System.out.print("\n Enter ID to insert: ");
+                        name = text.nextLine();
+                        insertRecord(id, name);
                         break;
                 case 2: System.out.print("\n Enter ID to search: ");
                         id = text.nextLine();
