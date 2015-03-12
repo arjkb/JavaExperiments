@@ -23,29 +23,37 @@ public class MyDbPgm {
      * @param args the command line arguments
      */
     
-    /*
-    static void insRecord() {
+    
+    static void insertRecord(String id, String name) {
+            //parameters for connection to database
         Connection con = null;
         Statement s = null;
         ResultSet rs = null;
         
+        PreparedStatement insStmt = null;
+       
+        String insString = "insert into VESPER.STUDENT(ID, NAME) values(?, ?)";
+       
         try {
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDemoDB", "vesper", "bond");
-            s = con.createStatement();
-            //rs = s.executeQuery("select * from VESPER.STUDENT");
+            insStmt = con.prepareStatement(insString);
+            insStmt.setString(1, id); //add parameter to query
+            insStmt.setString(2, name); //add parameter to query
             
-            while(rs.next())
-                System.out.println("\n Result: " + rs.getString(2));
-                 
+            insStmt.executeUpdate();
             
         } catch(SQLException E) {
             System.out.println("SQL Exception!");
             E.printStackTrace();
+        } catch(Exception E)    {
+            System.out.println("\n Oops! Something went wrong!");
+            E.printStackTrace();
         }
     }
-    */
+    
     
     static void searchRecord(String id) {
+        //parameters for connection to database
         Connection con = null;
         Statement s = null;
         ResultSet rs = null;
@@ -57,9 +65,10 @@ public class MyDbPgm {
         try {
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDemoDB", "vesper", "bond");
             searchStmt = con.prepareStatement(searchString);
-            searchStmt.setString(1, id);
+            searchStmt.setString(1, id); //add parameter to query
                         
             rs = searchStmt.executeQuery();
+            
             if(rs.next())   {
                 System.out.println("\n Name: " + rs.getString(2));
             }
@@ -91,6 +100,8 @@ public class MyDbPgm {
             System.out.print("\n Enter Your Choice: ");
             choice = num.nextInt();
             switch(choice)  {
+                case 1: insertRecord("105", "Riddle");
+                        break;
                 case 2: System.out.print("\n Enter ID to search: ");
                         id = text.nextLine();
                         searchRecord(id);
