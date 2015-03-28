@@ -104,7 +104,7 @@ public class MyDbPgm {
             switch(choice)  {
                 case 1: System.out.print("\n Enter ID to insert: ");
                         id = text.nextLine();
-                        System.out.print("\n Enter ID to insert: ");
+                        System.out.print("\n Enter Name to insert: ");
                         name = text.nextLine();
                         insertRecord(id, name);
                         break;

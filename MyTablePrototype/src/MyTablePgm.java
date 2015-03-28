@@ -26,7 +26,7 @@ public class MyTablePgm extends javax.swing.JFrame {
         
         colHeads = new Object [] {"NAME", "AGE"};
         data = new Object [][] { {"Jack", 23},
-                            {"John", 24} 
+                            {"John", 24}, {"Arun", 25} 
                           };
         
         jTable1.setModel(new DefaultTableModel(data, colHeads));
