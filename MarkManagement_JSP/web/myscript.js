@@ -7,12 +7,12 @@ function setLink()  {
     var logintype = document.loginform.usertype.value;
     var formhandle = document.loginform;
     
-    if( logintype = "admin")    {
+    if( logintype == "admin")    {
         formhandle.action = "adminsheet.jsp";
-    } else if( logintype = "stud" ) {
+    } else if( logintype == "stud" ) {
         formhandle.action = "studsheet.jsp";        
     }
     
-    formhandle.submit;
+    formhandle.submit();
 
 }
