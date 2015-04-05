@@ -13,7 +13,7 @@
     </head>
     <%@include file = "include/header.html" %>
         <h1>Admin Sheet</h1>
-        <form>
+        <form action = "marksubmit.jsp">
             <table>
                 <tr>
                     <td> ID </td>
