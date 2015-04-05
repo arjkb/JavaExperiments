@@ -22,12 +22,14 @@
             String pass;
             String username;
             String getPassQuery;
+            String getMarksQuery;
             String insQuery;
             
             Connection con;
             PreparedStatement ps;
             PreparedStatement S;
             ResultSet passResult;
+            ResultSet marksResult;
             String checkPass;
             int count;
         %>
@@ -56,6 +58,21 @@
                 %> 
                 <p> Welcome <%= username %>  </p>
                 <%
+                
+                getMarksQuery = "select sub1, sub2, sub3 from marks where roll = ?";
+                ps = con.prepareStatement(getMarksQuery);
+                ps.setInt(1, id);
+                
+                marksResult = ps.executeQuery();
+                
+                marksResult.next();
+                
+                for(int i = 1; i <= 3; i++) {
+                    %>
+                    <p> Mark <%= i %> : <%= marksResult.getInt(i) %> </p>
+                    <%
+                }
+                
             } else  {
                 %> 
                 <p> Invalid user! </p>
