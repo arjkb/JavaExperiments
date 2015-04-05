@@ -9,8 +9,41 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src ="myscript.js"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <h1> Login Screen </h1>
+        <div>
+            <form name = "loginform" action = "">
+                <table>
+                    <tr>
+                        <td> User ID </td>
+                        <td> 
+                            <input type="text" name = "userid" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Password </td>
+                        <td> 
+                            <input type="password" name = "userid" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Type </td>
+                        <td> 
+                            <input type="radio" name = "usertype" value = "admin" /> Admin
+                            <input type="radio" name = "usertype" value = "stud" checked /> Student
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type ="button" value = "Submit" onclick = "setLink()"/>
+                        </td>
+                    </tr>
+                </table>          
+            </form>
+        </div>
+            
     </body>
 </html>
