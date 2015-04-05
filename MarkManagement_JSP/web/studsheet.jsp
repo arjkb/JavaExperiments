@@ -14,26 +14,37 @@
     </head>
     
     <%@include file = "include/header.html" %>
-    <%!     int id;
-            int m1;
-            int m2;
-            int m3;
+    <%!     final int NO_OF_SUB = 3;
+            int id;
+               
+            int []subAvg;
             
             String pass;
             String username;
             String getPassQuery;
             String getMarksQuery;
             String insQuery;
+            String subject;
             
             Connection con;
             PreparedStatement ps;
             PreparedStatement S;
+            Statement stmt;
             ResultSet passResult;
             ResultSet marksResult;
+            ResultSet tempResult;
+            
+            //String countQuery = "select count(roll) from marks";
+            String subAvgQuery; 
             String checkPass;
             int count;
         %>
+        
         <%
+            subAvg = new int[NO_OF_SUB];
+            
+            stmt = con.createStatement();
+            
             id = Integer.parseInt(request.getParameter("userid"));
             pass = request.getParameter("userpass");
             
@@ -58,40 +69,46 @@
                 %> 
                 <p> Welcome <%= username %>  </p>
                 <%
+                /*
+                for(int i = 0; i < NO_OF_SUB; i++)  {
+                    //populate the average marks for all subjects
+                    subject = "sub"+(i+1);
+                    
+                    subAvgQuery = "select sum(" + subject + ")/count(roll) from marks";
+                    tempResult = stmt.executeQuery(subAvgQuery);
+                    tempResult.next();
+                    
+                    subAvg[i] = tempResult.getInt(1);
+                }
+                */
                 
                 getMarksQuery = "select sub1, sub2, sub3 from marks where roll = ?";
                 ps = con.prepareStatement(getMarksQuery);
-                ps.setInt(1, id);
-                
-                marksResult = ps.executeQuery();
-                
+                ps.setInt(1, id);                
+                marksResult = ps.executeQuery();              
                 marksResult.next();
                 
-                for(int i = 1; i <= 3; i++) {
+                for(int i = 1; i <= NO_OF_SUB; i++) {
                     %>
                     <p> Mark <%= i %> : <%= marksResult.getInt(i) %> </p>
+                    
                     <%
                 }
+                
+                tempResult = stmt.executeQuery("select count(roll) from marks");
+                tempResult.next();
+                
+                
+                
+                 //= "select sum(sub1)/count(sub1) from marks";
+                
                 
             } else  {
                 %> 
                 <p> Invalid user! </p>
                 <%
             }
-                        
-            
-  /*          
-            insQuery = "insert into MARKS(ROLL, SUB1, SUB2, SUB3) values(?, ?, ?, ?)";
-            
-            
-            ps = con.prepareStatement(insQuery);
-            ps.setInt(1, id);
-            ps.setInt(2, m1);
-            ps.setInt(3, m2);
-            ps.setInt(4, m3);
-            
-            count = ps.executeUpdate();
-*/
+               
         %>
     
         <h1>Hello World!</h1>
