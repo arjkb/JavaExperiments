@@ -20,6 +20,7 @@
             int m3;
             
             String pass;
+            String username;
             String getPassQuery;
             String insQuery;
             
@@ -31,7 +32,7 @@
             int count;
         %>
         <%
-            id = Integer.parseInt(request.getParameter("id"));
+            id = Integer.parseInt(request.getParameter("userid"));
             pass = request.getParameter("userpass");
             
    /*         m1 = Integer.parseInt(request.getParameter("mark1"));
@@ -40,7 +41,7 @@
             
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/MarksDB", "myuser", "mypass");
             
-            getPassQuery = "select pass from USERDATA where roll = ?";
+            getPassQuery = "select pass, name from USERDATA where roll = ?";
             
             S = con.prepareStatement(getPassQuery);
             S.setInt(1, id);
@@ -49,10 +50,11 @@
             passResult.next();
             
             checkPass = passResult.getString(1);
+            username = passResult.getString(2);
             
             if( pass.equals(checkPass) )    {
                 %> 
-                <p> Valid user! </p>
+                <p> Welcome <%= username %>  </p>
                 <%
             } else  {
                 %> 
