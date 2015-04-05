@@ -32,10 +32,10 @@
             Connection con;
             PreparedStatement ps;
             PreparedStatement S;
-       //     Statement stmt;
+            Statement stmt;
             ResultSet passResult;
             ResultSet marksResult;
-       //     ResultSet tempResult;
+            ResultSet tempResult;
             
             //String countQuery = "select count(roll) from marks";
             String subAvgQuery; 
@@ -46,18 +46,13 @@
         <%
             NO_OF_SUB = 3;
             out.println("HEY 2");
-         //   subAvg = new int[NO_OF_SUB];
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/MarksDB", "myuser", "mypass");
+            subAvg = new int[NO_OF_SUB];
             
-          //  stmt = con.createStatement();
+            stmt = con.createStatement();
             
             id = Integer.parseInt(request.getParameter("userid"));
-            pass = request.getParameter("userpass");
-            
-   /*         m1 = Integer.parseInt(request.getParameter("mark1"));
-            m2 = Integer.parseInt(request.getParameter("mark2"));
-            m3 = Integer.parseInt(request.getParameter("mark3")); */
-            
-            con = DriverManager.getConnection("jdbc:derby://localhost:1527/MarksDB", "myuser", "mypass");
+            pass = request.getParameter("userpass"); 
             
             getPassQuery = "select pass, name from USERDATA where roll = ?";
             
@@ -74,7 +69,7 @@
                 %> 
                 <p> Welcome <%= username %>  </p>
                 <%
-                /*
+                
                 for(int i = 0; i < NO_OF_SUB; i++)  {
                     //populate the average marks for all subjects
                     subject = "sub"+(i+1);
@@ -85,7 +80,7 @@
                     
                     subAvg[i] = tempResult.getInt(1);
                 }
-                */
+                
                 
                 getMarksQuery = "select sub1, sub2, sub3 from marks where roll = ?";
                 ps = con.prepareStatement(getMarksQuery);
@@ -96,7 +91,7 @@
                 for(int i = 1; i <= NO_OF_SUB; i++) {
                     %>
                     <p> Mark <%= i %> : <%= marksResult.getInt(i) %> </p>
-                    
+                    <p> Average: <%= subAvg[i - 1] %> </p>
                     <%
                 }
   /*
