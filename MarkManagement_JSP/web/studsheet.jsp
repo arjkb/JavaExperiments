@@ -14,7 +14,10 @@
     </head>
     
     <%@include file = "include/header.html" %>
-    <%!     final int NO_OF_SUB = 3;
+    <% out.println("HEY 1"); %>
+    <%!    
+            int NO_OF_SUB;// = 3;
+           
             int id;
                
             int []subAvg;
@@ -29,10 +32,10 @@
             Connection con;
             PreparedStatement ps;
             PreparedStatement S;
-            Statement stmt;
+       //     Statement stmt;
             ResultSet passResult;
             ResultSet marksResult;
-            ResultSet tempResult;
+       //     ResultSet tempResult;
             
             //String countQuery = "select count(roll) from marks";
             String subAvgQuery; 
@@ -41,9 +44,11 @@
         %>
         
         <%
-            subAvg = new int[NO_OF_SUB];
+            NO_OF_SUB = 3;
+            out.println("HEY 2");
+         //   subAvg = new int[NO_OF_SUB];
             
-            stmt = con.createStatement();
+          //  stmt = con.createStatement();
             
             id = Integer.parseInt(request.getParameter("userid"));
             pass = request.getParameter("userpass");
@@ -94,10 +99,10 @@
                     
                     <%
                 }
-                
+  /*
                 tempResult = stmt.executeQuery("select count(roll) from marks");
                 tempResult.next();
-                
+  */              
                 
                 
                  //= "select sum(sub1)/count(sub1) from marks";
