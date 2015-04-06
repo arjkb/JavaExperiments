@@ -12,7 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%
+            String userid = (String)session.getAttribute("username");
+            out.println("Hello " + userid);
+        %>
+        <h3> Enter Student Marks </h3>
         <form action = "marksubmit.jsp">
             <table>
                 <tr>
