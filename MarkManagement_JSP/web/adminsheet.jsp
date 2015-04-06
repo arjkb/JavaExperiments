@@ -12,7 +12,17 @@
         <title>JSP Page</title>
     </head>
     <%@include file = "include/header.html" %>
+    <%!
+        String userid;
+        String userpass;
+    %>
+    <%
+        userid = request.getParameter("userid");
+        userpass = request.getParameter("userpass");
+    %>
+    
         <h1>Admin Sheet</h1>
+        <h2> Hello <%= userid %> </h2>
         <form action = "marksubmit.jsp">
             <table>
                 <tr>
