@@ -31,10 +31,7 @@
     <%
         } else  {
     %>
-            <h2> Invalid username/password    
-               
-                 
-            </h2>
+            <h2> Invalid username/password </h2>
     <%
             //response.setHeader("ReLogin", "5; url=index.html");
             response.sendRedirect("index.html");
