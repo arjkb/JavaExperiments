@@ -1,17 +1,32 @@
-<%-- 
-    Document   : regstudent
-    Created on : 6 Apr, 2015, 5:29:16 PM
-    Author     : arjun
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title> Register New Student </title>
+        <script src ="myscript.js"> </script>
+        
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1> Register New Student </h1>
+        <form name = "regform" action = " ">
+            <table>
+                <tr>
+                    <td> ID </td>
+                    <td> <input type ="text" name ="id" /> </td>
+                </tr>                
+                <tr>
+                    <td> Name </td>
+                    <td> <input type ="text" name ="mark1" /> </td>
+                </tr>
+                <tr>
+                    <td> Password </td>
+                    <td> <input type ="text" name ="pass1" /> </td>
+                </tr>
+                <tr>
+                    <td> Retype </td>
+                    <td> <input type ="text" name ="pass2" onblur="checkPass()" /> </td>
+                </tr>
+            </table>
+        </form>
     </body>
 </html>
