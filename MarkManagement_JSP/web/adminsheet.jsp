@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title> Admin Page </title>
     </head>
     <%@include file = "include/header.html" %>
     <%!
@@ -19,10 +19,25 @@
     <%
         userid = request.getParameter("userid");
         userpass = request.getParameter("userpass");
+    
+        if(userid.equals("admin") && userpass.equals("adpass"))  {
+            %>
+            <h2> Hello <%= userid %> </h2>
+            <ul>
+                <li> <a href = ""> Enter marks </a> </li>
+                <li> <a href = ""> Register new student </a> </li>
+            </ul>
+    <%
+        } else  {
+    %>
+            <h2> Invalid username/password </h2>
+    <%
+        }
+        
     %>
     
         <h1>Admin Sheet</h1>
-        <h2> Hello <%= userid %> </h2>
+        
         <form action = "marksubmit.jsp">
             <table>
                 <tr>
