@@ -23,6 +23,7 @@
             PreparedStatement ps;
             int count;
         %>
+        
         <%
             id = Integer.parseInt(request.getParameter("id"));
             m1 = Integer.parseInt(request.getParameter("mark1"));
