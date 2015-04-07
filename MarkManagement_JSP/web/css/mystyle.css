@@ -8,17 +8,43 @@ and open the template in the editor.
     Author     : arjun
 */
 
-table   {
-    margin: auto;
+h1  {
+    font-family: "Arial";
+    font-size: 50px;
+    text-align: center;
 }
 
-a   {
-    text-decoration: none;
-}
-.nav_element {
-    background-color: green;
-    font-weight: bold;
+#navbar {
+    margin: auto;
     padding: 10px;
+    width: 37%;
+    text-align: center;    
 }
+
+.nav_element {
+    background-color: grey;
+    font-weight: bold;
+    padding: 11px;
+}
+
+a:link	{
+  text-decoration: none;
+  font-family: "Verdana";
+  font-size: 16px;
+  /*color: #FF7F00;*/
+}
+
+a:hover	{
+  text-decoration: none;
+  font-family: "Verdana";
+  font-size: 18px;
+  font-weight: bold;
+}
+
+a:active	{
+  font-weight: bold;
+}
+
+
 
 
