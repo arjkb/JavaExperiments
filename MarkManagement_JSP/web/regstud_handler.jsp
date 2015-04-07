@@ -20,13 +20,35 @@
             
             Connection con;
             PreparedStatement PS;
+            String insQuery;
             int updateCount;
+            
             
         %>
         
         <%
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/MarksDB", "myuser", "mypass");
+                     
+            insQuery = new String("insert into USERDATA(ROLL, NAME, PASS) values(?, ?, ?)");
             
+            PS = con.prepareStatement(insQuery);
+                       
+            studentID = Integer.parseInt(request.getParameter("id"));
+            studentName = request.getParameter("studName");            
+            studentPassWord = request.getParameter("pass1");
+            
+            out.println("\n ID = " + studentID);
+            out.println("\n Name = " + studentName);
+            out.println("\n PassWord =  " + studentPassWord);
+            
+            
+            PS.setInt(1, studentID);
+            PS.setString(2, studentName);
+            PS.setString(3, studentPassWord);
+            
+            updateCount = PS.executeUpdate();
+            
+            out.println("\n " + updateCount + " rows updated ");
         %>
-        <h1>Hello World!</h1>
     </body>
 </html>
