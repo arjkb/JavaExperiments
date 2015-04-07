@@ -26,7 +26,7 @@
             <h2> Hello <%= userid %> </h2>
             <ul>
                 <li> <a href = "entermarks.jsp"> Enter marks </a> </li>
-                <li> <a href = "regstudent.jsp"> Register new student </a> </li>
+                <li> <a href = "regstudent.html"> Register new student </a> </li>
             </ul>
     <%
         } else  {
