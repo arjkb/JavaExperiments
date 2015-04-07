@@ -60,6 +60,7 @@
             S.setInt(1, id);
             
             passResult = S.executeQuery();           
+
             passResult.next();
             
             checkPass = passResult.getString(1);
@@ -86,29 +87,30 @@
                 ps = con.prepareStatement(getMarksQuery);
                 ps.setInt(1, id);                
                 marksResult = ps.executeQuery();              
-                marksResult.next();
+//                marksResult.next();
                 
-                for(int i = 1; i <= NO_OF_SUB; i++) {
-                    %>
-                    <p> Mark <%= i %> : <%= marksResult.getInt(i) %> </p>
-                    <p> Average: <%= subAvg[i - 1] %> </p>
-                    <%
+                if( marksResult.next() )    {
+                    for(int i = 1; i <= NO_OF_SUB; i++) {
+                        %>
+                        <p> Mark <%= i %> : <%= marksResult.getInt(i) %> </p>
+                        <p> Average: <%= subAvg[i - 1] %> </p>
+                        <%
+                    }
+                } else  {
+                    out.println("\n Oops! We haven't computed your marks yet!");
                 }
+
   /*
                 tempResult = stmt.executeQuery("select count(roll) from marks");
                 tempResult.next();
   */              
-                
-                
                  //= "select sum(sub1)/count(sub1) from marks";
-                
-                
+
             } else  {
                 %> 
                 <p> Invalid user! </p>
                 <%
             }
-               
         %>
     
         <h1>Hello World!</h1>
