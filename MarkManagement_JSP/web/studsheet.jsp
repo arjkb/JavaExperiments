@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title> Marks Report </title>
         <link href="css/mystyle.css" rel ="stylesheet">
     </head>
     
@@ -82,13 +82,11 @@
                     subAvg[i] = tempResult.getInt(1);
                 }
                 
-                
                 getMarksQuery = "select sub1, sub2, sub3 from marks where roll = ?";
                 ps = con.prepareStatement(getMarksQuery);
                 ps.setInt(1, id);                
                 marksResult = ps.executeQuery();              
-//                marksResult.next();
-                           
+
                 if( marksResult.next() )    {
                     %>
                     <table id = "marks_table"> 
@@ -117,17 +115,12 @@
                     out.println("\n Oops! We haven't computed your marks yet!");
                 }
 
-  /*
-                tempResult = stmt.executeQuery("select count(roll) from marks");
-                tempResult.next();
-  */              
-                 //= "select sum(sub1)/count(sub1) from marks";
-
             } else  {
                 %> 
                 <p> Invalid user! </p>
                 <%
             }
         %>
-   
+      <br />
+      <br />
     <%@include file = "include/footer.html" %>
