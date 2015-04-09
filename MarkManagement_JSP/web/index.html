@@ -6,44 +6,56 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title> Login </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src ="myscript.js"></script>
+        <link href="css/mystyle.css" rel ="stylesheet">
     </head>
     <body>
-        <h1> Login Screen </h1>
+        <h1> Welcome </h1>
+        <h2> Login to Marks Management Suite </h2>
         <div>
             <form name = "loginform" action = "">
-                <table>
+                <table id = "login_table">
                     <tr>
-                        <td> User ID </td>
-                        <td> 
+                        <td class = "login_element"> User ID </td>
+                        <td class = "login_element"> 
                             <input type="text" name = "userid" />
                         </td>
                     </tr>
                     <tr>
-                        <td> Password </td>
-                        <td> 
+                        <td class = "login_element"> Password </td>
+                        <td class = "login_element"> 
                             <input type="password" name = "userpass" />
                         </td>
                     </tr>
                     <tr>
-                        <td> Type </td>
-                        <td> 
+                        <td class = "login_element"> User Type </td>
+                        <td class = "login_element"> 
                             <input type="radio" name = "usertype" value = "admin" /> Admin
                             <input type="radio" name = "usertype" value = "stud" checked /> Student
                         </td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>
-                            <input type ="button" value = "Submit" onclick = "setLink()"/>
+                        <td class = "login_element">
+                            <input type ="button" value = "Login" onclick = "setLink()"/>
                         </td>
                     </tr>
                 </table>          
             </form>
         </div>
-            
+        <br />
+        <footer>
+            <small>
+            This is an open-source project             
+            <br /> Developed by Arjun Krishna Babu
+            <br /> Source code availiable at <a href = "https://github.com/arjunkbabu" target="_blank"> 
+                                        https://github.com/arjunkbabu
+                                        </a>
+            </small>
+        </footer> 
+        
     </body>
 </html>

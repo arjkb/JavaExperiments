@@ -14,10 +14,26 @@ h1  {
     text-align: center;
 }
 
+h2  {
+    font-family: "Arial";
+    font-size: 30px;
+    text-align: center;
+}
+
+
 #marks_table {
     margin: auto;
     text-align: center;
     font-size: 30px;
+}
+
+#login_table    {
+    margin: auto;
+    background-color: lightgrey;
+}
+
+.login_element  {
+    padding: 8px;
 }
 
 #greeting   {
@@ -25,7 +41,7 @@ h1  {
     font-size: 40px;
 }
 
-#marks_cell {
+.marks_cell {
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 20px;
