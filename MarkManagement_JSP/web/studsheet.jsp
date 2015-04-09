@@ -6,6 +6,7 @@
 
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page errorPage = "errorpage.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +15,7 @@
     </head>
     
     <%@include file = "include/header.html" %>
-    <%@page errorPage = "errorpage.jsp" %>
+    
     <% out.println("HEY 1"); %>
     <%!    
             int NO_OF_SUB;// = 3;
