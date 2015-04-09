@@ -14,6 +14,7 @@
     </head>
     
     <%@include file = "include/header.html" %>
+    <%@page errorPage = "errorpage.jsp" %>
     <% out.println("HEY 1"); %>
     <%!    
             int NO_OF_SUB;// = 3;
