@@ -91,17 +91,17 @@
                     %>
                     <table id = "marks_table"> 
                         <tr>
-                            <th id = "marks_cell"> Subject </th>
-                            <th id = "marks_cell"> Your Marks </th>
-                            <th id = "marks_cell"> Class Average </th>
+                            <th class = "marks_cell"> Subject </th>
+                            <th class = "marks_cell"> Your Marks </th>
+                            <th class = "marks_cell"> Class Average </th>
                         </tr>
                     <%     
                     for(int i = 1; i <= NO_OF_SUB; i++) {
                         %>
                         <tr>
-                            <td id = "marks_cell"> Subject <%= i %> </td>
-                            <td id = "marks_cell"> <%= marksResult.getInt(i) %> </td>
-                            <td id = "marks_cell"> <%= subAvg[i - 1] %> </td>
+                            <td class = "marks_cell"> Subject <%= i %> </td>
+                            <td class = "marks_cell"> <%= marksResult.getInt(i) %> </td>
+                            <td class = "marks_cell"> <%= subAvg[i - 1] %> </td>
                         </tr>
                         
                         <br />
