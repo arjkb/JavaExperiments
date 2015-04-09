@@ -68,7 +68,7 @@
             
             if( pass.equals(checkPass) )    {
                 %> 
-                <p> Welcome <%= username %>  </p>
+                <p id = "greeting"> Welcome, <%= username %>!  </p>
                 <%
                 
                 for(int i = 0; i < NO_OF_SUB; i++)  {
@@ -91,17 +91,17 @@
                     %>
                     <table id = "marks_table"> 
                         <tr>
-                            <th> Subject </th>
-                            <th> Your Marks </th>
-                            <th> Class Average </th>
+                            <th id = "marks_cell"> Subject </th>
+                            <th id = "marks_cell"> Your Marks </th>
+                            <th id = "marks_cell"> Class Average </th>
                         </tr>
                     <%     
                     for(int i = 1; i <= NO_OF_SUB; i++) {
                         %>
                         <tr>
-                            <td> Subject <%= i %> </td>
-                            <td> <%= marksResult.getInt(i) %> </td>
-                            <td> <%= subAvg[i - 1] %> </td>
+                            <td id = "marks_cell"> Subject <%= i %> </td>
+                            <td id = "marks_cell"> <%= marksResult.getInt(i) %> </td>
+                            <td id = "marks_cell"> <%= subAvg[i - 1] %> </td>
                         </tr>
                         
                         <br />

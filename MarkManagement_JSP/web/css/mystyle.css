@@ -17,7 +17,20 @@ h1  {
 #marks_table {
     margin: auto;
     text-align: center;
-    
+    font-size: 30px;
+}
+
+#greeting   {
+    text-align: center;
+    font-size: 30px;
+}
+
+#marks_cell {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px; 
+    background-color: lightgrey; 
 }
 
 #navbar {
