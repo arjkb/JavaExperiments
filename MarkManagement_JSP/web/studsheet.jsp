@@ -12,11 +12,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="css/mystyle.css" rel ="stylesheet">
     </head>
     
     <%@include file = "include/header.html" %>
-    
-    <% out.println("HEY 1"); %>
     <%!    
             int NO_OF_SUB;// = 3;
            
@@ -47,7 +46,6 @@
         
         <%
             NO_OF_SUB = 3;
-            out.println("HEY 2");
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/MarksDB", "myuser", "mypass");
             subAvg = new int[NO_OF_SUB];
             
@@ -90,14 +88,31 @@
                 ps.setInt(1, id);                
                 marksResult = ps.executeQuery();              
 //                marksResult.next();
-                
+                           
                 if( marksResult.next() )    {
+                    %>
+                    <table id = "marks_table"> 
+                        <tr>
+                            <th> Subject </th>
+                            <th> Your Marks </th>
+                            <th> Class Average </th>
+                        </tr>
+                    <%     
                     for(int i = 1; i <= NO_OF_SUB; i++) {
                         %>
-                        <p> Mark <%= i %> : <%= marksResult.getInt(i) %> </p>
-                        <p> Average: <%= subAvg[i - 1] %> </p>
+                        <tr>
+                            <td> Subject <%= i %> </td>
+                            <td> <%= marksResult.getInt(i) %> </td>
+                            <td> <%= subAvg[i - 1] %> </td>
+                        </tr>
+                        
+                        <br />
+
                         <%
                     }
+                    %>
+                    </table>
+                    <%     
                 } else  {
                     out.println("\n Oops! We haven't computed your marks yet!");
                 }
@@ -114,7 +129,5 @@
                 <%
             }
         %>
-    
-        <h1>Hello World!</h1>
-    
+   
     <%@include file = "include/footer.html" %>
