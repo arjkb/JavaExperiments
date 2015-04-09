@@ -14,6 +14,12 @@ h1  {
     text-align: center;
 }
 
+#reg_head   {
+    font-family: "Arial";
+    font-size: 40px;
+    text-align: center;
+}
+
 h2  {
     font-family: "Arial";
     font-size: 30px;
@@ -33,6 +39,15 @@ h2  {
 }
 
 .login_element  {
+    padding: 8px;
+}
+
+#reg_table  {
+    margin: auto;
+    background-color: lightgrey;
+}
+
+.reg_element    {
     padding: 8px;
 }
 
