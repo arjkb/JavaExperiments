@@ -13,6 +13,8 @@
         <title>Error Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1> Oops! There seems to be a problem! </h1>
+        
+        <% exception.printStackTrace(response.getWriter()); %>
     </body>
 </html>
