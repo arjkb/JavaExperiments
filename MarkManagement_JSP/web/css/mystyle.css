@@ -14,6 +14,12 @@ h1  {
     text-align: center;
 }
 
+#marks_table {
+    margin: auto;
+    text-align: center;
+    
+}
+
 #navbar {
     margin: auto;
     padding: 10px;
