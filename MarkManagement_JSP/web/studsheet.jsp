@@ -40,7 +40,7 @@
             
             //String countQuery = "select count(roll) from marks";
             String subAvgQuery; 
-            String checkPass;
+            String checkPass; 
             int count;
         %>
         
