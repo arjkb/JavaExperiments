@@ -21,11 +21,11 @@
                 <header> 
             <h1> Marks Management Suite </h1>
             <nav id = "navbar">
-                <a id = "navelem_current" href="entermarks.jsp" target = "_blank">
+                <a id = "navelem_current" href="entermarks.jsp" target = "_self">
                                 Enter Marks
                 </a>
                 &nbsp
-                <a class ="nav_element" href="regstudent.jsp" target = "_blank">
+                <a class ="nav_element" href="regstudent.jsp" target = "_self">
                                 Register New Student
                 </a>
                 &nbsp
@@ -59,5 +59,15 @@
                 </tr>
             </table>
         </form>
+        <br />
+        <footer>
+            <small>
+            This is an open-source project             
+            <br /> Developed by Arjun Krishna Babu
+            <br /> Source code availiable at <a href = "https://github.com/arjunkbabu" target="_blank"> 
+                                        https://github.com/arjunkbabu
+                                        </a>
+            </small>
+        </footer>
     </body>
 </html>
