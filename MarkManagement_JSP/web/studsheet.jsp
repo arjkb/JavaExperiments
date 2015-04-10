@@ -119,7 +119,7 @@
 
             } else  {
                 %> 
-                <p> Invalid user! </p>
+                <p class = "greeting"> Invalid user! </p>
                 <%
             }
         %>
