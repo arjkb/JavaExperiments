@@ -7,6 +7,11 @@
         <link href ="css/mystyle.css" rel = "stylesheet" type="text/stylesheet">
     </head>
     <body>
+        <%
+            String userid = (String)session.getAttribute("username");
+            out.println("Hello " + userid);
+            if( userid.equals("admin"))  {
+        %>
         <h1 id = "reg_head" > NEW STUDENT REGISTRATION </h1>
         <form name = "regform" action = "regstud_handler.jsp">
             <table id = "reg_table">
@@ -33,6 +38,15 @@
                 </tr>
             </table>
         </form>
+        <%
+            }
+            else    {
+                %>
+                <p class = "greeting"> Oops! You don't have the privilege! </p>
+                <%
+            }
+                 
+        %>
         <br />
         <footer>
             <small>
