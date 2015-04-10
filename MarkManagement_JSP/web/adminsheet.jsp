@@ -21,7 +21,7 @@
                                 Enter Marks
                 </a>
                 &nbsp
-                <a class ="nav_element" href="regstudent.html" target = "_blank">
+                <a class ="nav_element" href="regstudent.jsp" target = "_blank">
                                 Register New Student
                 </a>
             </nav>
