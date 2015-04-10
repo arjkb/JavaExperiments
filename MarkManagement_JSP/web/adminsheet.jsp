@@ -24,6 +24,10 @@
                 <a class ="nav_element" href="regstudent.jsp" target = "_blank">
                                 Register New Student
                 </a>
+                &nbsp
+                <a class ="nav_element" href="logout.jsp" target = "_self">
+                                Logout
+                </a>
             </nav>
         </header>    
     <%!

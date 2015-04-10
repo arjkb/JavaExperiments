@@ -56,6 +56,11 @@ h2  {
     background-color: lightgrey;
 }
 
+#marksentry_current {
+    font-family: "Verdana";
+    font-size: 18px;
+    font-weight: bold;
+}
 .marksentry_element {
     padding: 8px;
 }
@@ -81,7 +86,7 @@ h2  {
 }
 
 .nav_element {
-    padding: 30px;
+    padding: 20px;
     background-color: lightgrey;
 }
 
@@ -103,6 +108,14 @@ a:hover	{
 
 a:active	{
   font-weight: bold;
+}
+
+#navelem_current {
+    font-family: "Verdana";
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px;
+    background-color: orange;
 }
 
 footer  {

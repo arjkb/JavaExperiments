@@ -15,6 +15,20 @@
             if( userid.equals("admin"))  {
         %>
         <h1 id = "reg_head" > NEW STUDENT REGISTRATION </h1>
+        <nav id = "navbar">
+                <a class ="nav_element" href="entermarks.jsp" target = "_blank">
+                                Enter Marks
+                </a>
+                &nbsp
+                <a id = "navelem_current" href="regstudent.jsp" target = "_blank">
+                                Register New Student
+                </a>
+                &nbsp
+                <a class ="nav_element" href="logout.jsp" target = "_self">
+                                Logout
+                </a>
+            </nav>
+        <br />
         <form name = "regform" action = "regstud_handler.jsp">
             <table id = "reg_table">
                 <tr>

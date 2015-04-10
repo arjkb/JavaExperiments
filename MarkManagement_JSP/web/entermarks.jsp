@@ -18,6 +18,22 @@
             String userid = (String)session.getAttribute("username");
             out.println("Hello " + userid);
         %>
+                <header> 
+            <h1> Marks Management Suite </h1>
+            <nav id = "navbar">
+                <a id = "navelem_current" href="entermarks.jsp" target = "_blank">
+                                Enter Marks
+                </a>
+                &nbsp
+                <a class ="nav_element" href="regstudent.jsp" target = "_blank">
+                                Register New Student
+                </a>
+                &nbsp
+                <a class ="nav_element" href="logout.jsp" target = "_self">
+                                Logout
+                </a>
+            </nav>
+        </header> 
         <h2> Enter Student Marks </h2>
         <form action = "marksubmit.jsp">
             <table id = "marksentry_table">
