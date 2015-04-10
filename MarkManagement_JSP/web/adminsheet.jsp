@@ -11,8 +11,21 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> Admin Page </title>
+        <link href ="css/mystyle.css" rel = "stylesheet" type="text/stylesheet">
     </head>
-    <%@include file = "include/header.html" %>
+    <body>
+        <header> 
+            <h1> Marks Management Suite </h1>
+            <nav id = "navbar">
+                <a class ="nav_element" href="entermarks.jsp" target = "_blank">
+                                Enter Marks
+                </a>
+                &nbsp
+                <a class ="nav_element" href="regstudent.html" target = "_blank">
+                                Register New Student
+                </a>
+            </nav>
+        </header>    
     <%!
         String userid;
         String userpass;
@@ -23,12 +36,12 @@
     
         if(userid.equals("admin") && userpass.equals("adpass"))  {
             session.setAttribute("username", userid);
-            %>
+    %>
             <h2> Hello <%= userid %> </h2>
-            <ul>
+<!--            <ul>
                 <li> <a href = "entermarks.jsp"> Enter marks </a> </li>
                 <li> <a href = "regstudent.html"> Register new student </a> </li>
-            </ul>
+            </ul>-->
     <%
         } else  {
     %>

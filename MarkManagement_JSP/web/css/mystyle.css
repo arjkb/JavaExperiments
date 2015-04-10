@@ -72,10 +72,11 @@ h2  {
 }
 
 .nav_element {
-    background-color: grey;
-    font-weight: bold;
-    padding: 11px;
+    padding: 30px;
+    background-color: lightgrey;
 }
+
+
 
 a:link	{
   text-decoration: none;
@@ -98,6 +99,14 @@ a:active	{
 footer  {
     text-align: center;
    
+}
+
+a.nav_element   {
+    font-size: 20px;
+}
+
+a.nav_element:hover {
+    font-weight: bold;
 }
 
 
