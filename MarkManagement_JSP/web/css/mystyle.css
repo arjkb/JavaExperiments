@@ -51,6 +51,15 @@ h2  {
     padding: 8px;
 }
 
+#marksentry_table   {
+    margin: auto;
+    background-color: lightgrey;
+}
+
+.marksentry_element {
+    padding: 8px;
+}
+
 #greeting   {
     text-align: center;
     font-size: 40px;

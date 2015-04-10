@@ -10,35 +10,36 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title> Student Marks Entry </title>
+        <link href ="css/mystyle.css" rel = "stylesheet" type="text/stylesheet">
     </head>
     <body>
         <%
             String userid = (String)session.getAttribute("username");
             out.println("Hello " + userid);
         %>
-        <h3> Enter Student Marks </h3>
+        <h2> Enter Student Marks </h2>
         <form action = "marksubmit.jsp">
-            <table>
+            <table id = "marksentry_table">
                 <tr>
-                    <td> ID </td>
-                    <td> <input type ="text" name ="id" /> </td>
+                    <td class = "marksentry_element"> ID </td>
+                    <td class = "marksentry_element"> <input type ="text" name ="id" /> </td>
                 </tr>                
                 <tr>
-                    <td> Marks 1 </td>
-                    <td> <input type ="text" name ="mark1" /> </td>
+                    <td class = "marksentry_element"> Marks 1 </td>
+                    <td class = "marksentry_element"> <input type ="text" name ="mark1" /> </td>
                 </tr>
                 <tr>
-                    <td> Marks 2 </td>
-                    <td> <input type ="text" name ="mark2" /> </td>
+                    <td class = "marksentry_element"> Marks 2 </td>
+                    <td class = "marksentry_element"> <input type ="text" name ="mark2" /> </td>
                 </tr>
                 <tr>
-                    <td> Marks 3 </td>
-                    <td> <input type ="text" name ="mark3" /> </td>
+                    <td class = "marksentry_element"> Marks 3 </td>
+                    <td class = "marksentry_element"> <input type ="text" name ="mark3" /> </td>
                 </tr>
                 <tr>
-                    <td> </td>
-                    <td> <input type ="submit"/> </td>
+                    <td class = "marksentry_element"> </td>
+                    <td class = "marksentry_element"> <input type ="submit"/> </td>
                 </tr>
             </table>
         </form>
