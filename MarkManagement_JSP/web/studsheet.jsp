@@ -68,7 +68,7 @@
             
             if( pass.equals(checkPass) )    {
                 %> 
-                <p id = "greeting"> Welcome, <%= username %>!  </p>
+                <p class = "greeting"> Welcome, <%= username %>!  </p>
                 <%
                 
                 for(int i = 0; i < NO_OF_SUB; i++)  {
@@ -112,7 +112,9 @@
                     </table>
                     <%     
                 } else  {
-                    out.println("\n Oops! We haven't computed your marks yet!");
+                    %>
+                    <p class = "greeting"> Oops! We haven't computed your marks yet! </p>
+                    <%
                 }
 
             } else  {
