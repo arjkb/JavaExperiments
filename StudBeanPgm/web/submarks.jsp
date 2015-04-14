@@ -22,8 +22,8 @@
             name = request.getParameter("name");
             marks = Integer.parseInt(request.getParameter("marks"));
             
-            out.println("\n Name: " + name);
-            out.println("\n Marks: " + marks);
+//            out.println("\n Name: " + name);
+//            out.println("\n Marks: " + marks);
         %>
         
         <jsp:useBean id = "Student_Bean" class = "StudentPack.Student"></jsp:useBean>
@@ -32,7 +32,7 @@
         Name of student: <jsp:getProperty name="Student_Bean" property = "name" />
        
         <%
-            out.println("\n Return" + Student_Bean.foo());
+//            out.println("\n Return" + Student_Bean.foo());
         %>
     </body>
 </html>
