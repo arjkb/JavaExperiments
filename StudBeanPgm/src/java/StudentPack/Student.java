@@ -5,6 +5,8 @@
  */
 package StudentPack;
 
+import static java.lang.System.out;
+
 /**
  *
  * @author arjun
@@ -32,5 +34,9 @@ public class Student {
     
     public int getMarks()   {
         return marks;
+    }
+    
+    public static int foo()   {
+        return 100;
     }
 }

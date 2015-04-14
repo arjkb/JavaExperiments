@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import = "StudentPack.Student" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,6 +30,9 @@
         <jsp:setProperty name = "Student_Bean" property="*" />
         
         Name of student: <jsp:getProperty name="Student_Bean" property = "name" />
-        
+       
+        <%
+            out.println("\n Return" + StudentPack.Student.foo());
+        %>
     </body>
 </html>
