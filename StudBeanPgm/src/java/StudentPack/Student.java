@@ -13,7 +13,7 @@ public class Student {
     private String name;
     private int marks;
     
-    Student()   {
+    public Student()   {
         name = null;
         marks = 0;
     }
