@@ -17,6 +17,14 @@
             int marks;
         %>
         <h1>Hello World!</h1>
+        <%
+            name = request.getParameter("myname");
+            marks = Integer.parseInt(request.getParameter("mymarks"));
+            
+            out.println("\n Name: " + name);
+            out.println("\n Marks: " + marks);
+        %>
+        
         
     </body>
 </html>
