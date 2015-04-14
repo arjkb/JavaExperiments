@@ -13,7 +13,7 @@
         <title> Submit Marks </title>
     </head>
     <body>
-        <%!
+        <%!            
             String name;
             int marks;
         %>
