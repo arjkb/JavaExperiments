@@ -5,15 +5,21 @@
  */
 package StudentPack;
 
-import static java.lang.System.out;
+import java.sql.*;
 
 /**
  *
  * @author arjun
  */
+
+
 public class Student {
     private String name;
     private int marks;
+    
+    private Connection con;
+    private PreparedStatement ps;
+    
     
     public Student()   {
         name = null;
@@ -34,6 +40,11 @@ public class Student {
     
     public int getMarks()   {
         return marks;
+    }
+    
+    public void setupDB()   {
+        
+        
     }
     
     public int foo()   {
