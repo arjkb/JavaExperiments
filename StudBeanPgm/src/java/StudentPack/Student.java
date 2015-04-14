@@ -36,7 +36,7 @@ public class Student {
         return marks;
     }
     
-    public static int foo()   {
-        return 100;
+    public int foo()   {
+        return (marks + 20);
     }
 }

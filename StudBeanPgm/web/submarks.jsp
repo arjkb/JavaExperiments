@@ -32,7 +32,7 @@
         Name of student: <jsp:getProperty name="Student_Bean" property = "name" />
        
         <%
-            out.println("\n Return" + StudentPack.Student.foo());
+            out.println("\n Return" + Student_Bean.foo());
         %>
     </body>
 </html>
