@@ -10,5 +10,27 @@ package StudentPack;
  * @author arjun
  */
 public class Student {
+    private String name;
+    private int marks;
     
+    Student()   {
+        name = null;
+        marks = 0;
+    }
+    
+    public void setName(String name)    {
+        this.name = name;
+    }
+    
+    public void setMarks(int marks) {
+        this.marks = marks;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public int getMarks()   {
+        return marks;
+    }
 }
