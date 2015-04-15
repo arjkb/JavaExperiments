@@ -23,6 +23,7 @@ public class Student {
     
     private Connection con;
     private PreparedStatement ps;
+    private ResultSet result;
     
     private int updateCount;
     private String insQuery;
@@ -35,6 +36,7 @@ public class Student {
         marks = 0;
 
         ps = null;
+        result = null;
         
         updateCount = 0;
         insQuery = null;
@@ -95,6 +97,20 @@ public class Student {
     
     public void getTopper() {
         topperQuery = "select roll, name, marks from markstable order by marks desc";
+        try {
+            ps = con.prepareStatement(topperQuery);
+            ps.setMaxRows(1);
+            result = ps.executeQuery();
+            
+            if( result.next() ) {   //move to first row
+                roll = result.getInt(1);
+                name = result.getString(2);
+                marks = result.getInt(3);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
     }
