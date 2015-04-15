@@ -33,13 +33,18 @@ public class Student {
         roll = 0;
         name = null;
         marks = 0;
-        
-        con = null;
+
         ps = null;
         
         updateCount = 0;
         insQuery = null;
         topperQuery = null;
+        
+        try {
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/StudBeanDB", "teacher", "password");
+        } catch (SQLException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void setRoll(int roll)   {
@@ -74,19 +79,24 @@ public class Student {
         insQuery = "insert into markstable(roll, name, marks) values(?, ?, ?)";
         
         try {
-            con = DriverManager.getConnection("jdbc:derby://localhost:1527/StudBeanDB", "teacher", "password");
+            
             ps = con.prepareStatement(insQuery);
             
             ps.setInt(1, roll);
             ps.setString(2, name);
             ps.setInt(3, marks);
-
-            
+       
             updateCount = ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("\n Oops! Something went wrong!");
             ex.printStackTrace();
         }
+    }
+    
+    public void getTopper() {
+        topperQuery = "select roll, name, marks from markstable order by marks desc";
+        
+        
     }
 
     public int foo()   {
