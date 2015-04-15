@@ -103,9 +103,9 @@ public class Student {
             result = ps.executeQuery();
             
             if( result.next() ) {   //move to first row
-                roll = result.getInt(1);
-                name = result.getString(2);
-                marks = result.getInt(3);
+                roll = result.getInt("roll");
+                name = result.getString("name");
+                marks = result.getInt("marks");
             }
             
         } catch (SQLException ex) {
