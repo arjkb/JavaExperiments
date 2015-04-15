@@ -6,6 +6,8 @@
 package StudentPack;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,6 +23,8 @@ public class Student {
     
     private Connection con;
     private PreparedStatement ps;
+    
+    private int updateCount;
     
     
     public Student()   {
@@ -53,8 +57,25 @@ public class Student {
     }
     
     public void setupDB()   {
+        String insQuery;
         
-        
+        try {
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/StudBeanDB", "teacher", "password");
+            ps = con.prepareStatement("insert into markstable values(?, ?, ?)");
+            
+            ps.setInt(1, 15);
+            ps.setString(2, "Mickey");
+            ps.setInt(3,550);
+            
+            updateCount = ps.executeUpdate();
+            
+            
+            
+            
+        } catch (SQLException ex) {
+            System.out.println("\n Oops! Something went wrong!");
+            ex.printStackTrace();
+        }
     }
     
     public int foo()   {

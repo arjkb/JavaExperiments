@@ -34,6 +34,8 @@
        
         <%
 //            out.println("\n Return" + Student_Bean.foo());
+            
+            Student_Bean.setupDB();
         %>
     </body>
 </html>
