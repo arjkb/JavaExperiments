@@ -25,6 +25,8 @@ public class Student {
     private PreparedStatement ps;
     
     private int updateCount;
+    private String insQuery;
+    private String topperQuery;
     
     
     public Student()   {
@@ -61,11 +63,11 @@ public class Student {
     }
     
     public void writeToDB()   {
-        String insQuery;
+        insQuery = "insert into markstable(roll, name, marks) values(?, ?, ?)";
         
         try {
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/StudBeanDB", "teacher", "password");
-            ps = con.prepareStatement("insert into markstable(roll, name, marks) values(?, ?, ?)");
+            ps = con.prepareStatement(insQuery);
             
             ps.setInt(1, roll);
             ps.setString(2, name);
@@ -78,7 +80,7 @@ public class Student {
             ex.printStackTrace();
         }
     }
-    
+
     public int foo()   {
         return (marks + 20);
     }
