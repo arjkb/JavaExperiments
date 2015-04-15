@@ -32,9 +32,7 @@
         Name of student: <jsp:getProperty name="Student_Bean" property = "name" />
         Marks of student: <jsp:getProperty name="Student_Bean" property = "marks" />
        
-        <%
-//            out.println("\n Return" + Student_Bean.foo());
-            
+        <%            
             Student_Bean.writeToDB();
             int x = Student_Bean.getUpdateCount();
             out.println("\n Update " + x);
