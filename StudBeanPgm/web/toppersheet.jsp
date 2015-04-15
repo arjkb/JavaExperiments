@@ -9,16 +9,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title> Student Topper Information </title>
     </head>
     <body>
         <h1>Hello World!</h1>
         <div>
             <jsp:useBean id = "Student_Bean" class = "StudentPack.Student"></jsp:useBean>
             <%
-                Student_Bean.getTopper();
+                Student_Bean.getTopper(); //method to find out who's the topper
             %>
-                Topper Name : <jsp:getProperty name="Student_Bean" property="name" />
+            <br /> Topper Roll : <jsp:getProperty name="Student_Bean" property="roll" />
+            <br /> Topper Name : <jsp:getProperty name="Student_Bean" property="name" />
+            <br /> Topper Marks : <jsp:getProperty name="Student_Bean" property="marks" />                
         </div>
     </body>
 </html>
