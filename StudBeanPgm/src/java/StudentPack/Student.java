@@ -30,8 +30,16 @@ public class Student {
     
     
     public Student()   {
+        roll = 0;
         name = null;
         marks = 0;
+        
+        con = null;
+        ps = null;
+        
+        updateCount = 0;
+        insQuery = null;
+        topperQuery = null;
     }
     
     public void setRoll(int roll)   {
