@@ -56,22 +56,23 @@ public class Student {
         return marks;
     }
     
-    public void setupDB()   {
+    public int getUpdateCount() {
+        return updateCount;
+    }
+    
+    public void writeToDB()   {
         String insQuery;
         
         try {
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/StudBeanDB", "teacher", "password");
-            ps = con.prepareStatement("insert into markstable values(?, ?, ?)");
+            ps = con.prepareStatement("insert into markstable(roll, name, marks) values(?, ?, ?)");
             
-            ps.setInt(1, 15);
-            ps.setString(2, "Mickey");
-            ps.setInt(3,550);
+            ps.setInt(1, roll);
+            ps.setString(2, name);
+            ps.setInt(3, marks);
+
             
             updateCount = ps.executeUpdate();
-            
-            
-            
-            
         } catch (SQLException ex) {
             System.out.println("\n Oops! Something went wrong!");
             ex.printStackTrace();

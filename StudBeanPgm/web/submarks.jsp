@@ -35,7 +35,9 @@
         <%
 //            out.println("\n Return" + Student_Bean.foo());
             
-            Student_Bean.setupDB();
+            Student_Bean.writeToDB();
+            int x = Student_Bean.getUpdateCount();
+            out.println("\n Update " + x);
         %>
     </body>
 </html>
