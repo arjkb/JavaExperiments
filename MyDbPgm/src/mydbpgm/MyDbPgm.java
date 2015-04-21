@@ -36,6 +36,10 @@ public class MyDbPgm {
        
         try {
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/MyDemoDB", "vesper", "bond");
+            
+//            s = con.createStatement();
+//            s.executeUpdate("insert into VESPER.STUDENT(ID, NAME) values('1222', 'Anushka')");
+            
             insStmt = con.prepareStatement(insString);
             insStmt.setString(1, id); //add parameter to query
             insStmt.setString(2, name); //add parameter to query
