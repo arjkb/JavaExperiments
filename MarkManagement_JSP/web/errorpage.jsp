@@ -7,51 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page isErrorPage = "true" %>
 <%@page errorPage = "errorpage.jsp" %>
-<%-- 
-    Document   : errorpage
-    Created on : 9 Apr, 2015, 4:27:28 PM
-    Author     : arjun
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page isErrorPage = "true" %>
-<%@page errorPage = "errorpage.jsp" %>
-<%-- 
-    Document   : errorpage
-    Created on : 9 Apr, 2015, 4:27:28 PM
-    Author     : arjun
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page isErrorPage = "true" %>
-
-<%-- 
-    Document   : errorpage
-    Created on : 9 Apr, 2015, 4:27:28 PM
-    Author     : arjun
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page isErrorPage = "true" %>
-<%@page errorPage = "errorpage.jsp" %>
-<%-- 
-    Document   : errorpage
-    Created on : 9 Apr, 2015, 4:27:28 PM
-    Author     : arjun
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page isErrorPage = "true" %>
-<%@page errorPage = "errorpage.jsp" %>
-<%-- 
-    Document   : errorpage
-    Created on : 9 Apr, 2015, 4:27:28 PM
-    Author     : arjun
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page isErrorPage = "true" %>
-<%@page errorPage = "errorpage.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
