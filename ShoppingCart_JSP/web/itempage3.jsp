@@ -4,6 +4,8 @@
     Author     : arjun
 --%>
 
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,12 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+            ArrayList shopItems = (ArrayList) session.getAttribute("purchase");
+            String pens[] = request.getParameterValues("pen");
+            shopItems.addAll(Arrays.asList(pens));
+            session.setAttribute("purchase", shopItems);
+        %>    
         <h1> Phone </h1>
         
         <form> 

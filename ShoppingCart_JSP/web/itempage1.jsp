@@ -4,6 +4,7 @@
     Author     : arjun
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,11 @@
     </head>
     <body>
         <h1> Watches </h1>
+        
+        <%
+            ArrayList shopItems = new ArrayList();
+            session.setAttribute("purchase", shopItems);
+        %>
         
         <form action = "itempage2.jsp"> 
             <table>
