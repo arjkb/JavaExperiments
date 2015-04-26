@@ -4,6 +4,8 @@
     Author     : arjun
 --%>
 
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +16,12 @@
     <body>
         <h1> Pen/Writing Instruments </h1>
         
+        <%
+            ArrayList shopItems = (ArrayList) session.getAttribute("purchase");
+            String watches[] = request.getParameterValues("watch");
+            shopItems.addAll(Arrays.asList(watches));
+            session.setAttribute("purchase", shopItems);
+        %>
         <form action = "itempage3.jsp"> 
             <table>
                 <tr>
@@ -25,7 +33,7 @@
                 </tr>
                 <tr>
                     <td> 
-                        <input type="checkbox" name ="watch" value="pp_cello"/>
+                        <input type="checkbox" name ="pen" value="pp_cello"/>
                     </td>
                     <td> PinPoint </td>
                     <td> Cello </td>
@@ -34,7 +42,7 @@
                 </tr>
                 <tr>
                     <td> 
-                        <input type="checkbox" name ="watch" value="tt_cello"/>
+                        <input type="checkbox" name ="pen" value="tt_cello"/>
                     </td>
                     <td> TechnoTip </td>
                     <td> Cello </td>
@@ -43,7 +51,7 @@
                 </tr>
                 <tr>
                     <td> 
-                        <input type="checkbox" name ="watch" value="g_mb"/>
+                        <input type="checkbox" name ="pen" value="g_mb"/>
                     </td>
                     <td> Gandhi </td>
                     <td> Mont Blanc </td>
@@ -52,7 +60,7 @@
                 </tr>
                 <tr>
                     <td> 
-                        <input type="checkbox" name ="watch" value="3302_cross"/>
+                        <input type="checkbox" name ="pen" value="3302_cross"/>
                     </td>
                     <td> 3302 Classic </td>
                     <td> Cross </td>
