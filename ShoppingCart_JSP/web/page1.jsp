@@ -23,10 +23,14 @@
             A = new ArrayList();
             session.setAttribute("stuff", A);
         %>
-        <form>
+        <form action ="page2.jsp">
             <input type="checkbox" name ="watch" value ="casio" /> Casio <br />
             <input type="checkbox" name ="watch" value ="longines" /> Longines <br />
             <input type="checkbox" name ="watch" value ="titan" /> Titan <br />
+<!--            <input type="checkbox" name ="casio" /> Casio <br />
+            <input type="checkbox" name ="longines" /> Longines <br />
+            <input type="checkbox" name ="titan" /> Titan <br />-->
+
             <input type ="submit" />
         </form>
     </body>
