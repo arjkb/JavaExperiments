@@ -14,7 +14,7 @@
     <body>
         <h1> Watches </h1>
         
-        <form> 
+        <form action = "itempage2.jsp"> 
             <table>
                 <tr>
                     <th> Select </th>
@@ -58,6 +58,15 @@
                     <td> Longines </td>
                     <td> 1,20,000 </td>
                     <td> 12 </td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> 
+                        <input type="submit" value ="Continue Shopping" />
+                    </td>
+                    <td> </td>
                 </tr>
             </table>
         </form>
