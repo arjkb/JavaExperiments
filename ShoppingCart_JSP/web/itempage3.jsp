@@ -22,7 +22,7 @@
         %>    
         <h1> Phone </h1>
         
-        <form> 
+        <form action="checkout.jsp"> 
             <table>
                 <tr>
                     <th> Select </th>
