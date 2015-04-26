@@ -22,6 +22,7 @@
         <%
             A = new ArrayList();
             session.setAttribute("stuff", A);
+            out.println("<h1> Hello! </h1>");
         %>
         <form action ="page2.jsp">
             <input type="checkbox" name ="watch" value ="casio" /> Casio <br />
