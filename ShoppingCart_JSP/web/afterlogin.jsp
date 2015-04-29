@@ -19,6 +19,12 @@
             if( username.equals("admin") && userpass.equals("adpass") ) {
                 out.println("<h2> Welcome back, " + username + "! </h2>");
                 session.setAttribute("user", username);
+                
+                %>
+                
+                <br /> <a href="addnewitem.jsp"> Add new item </a>
+                
+                <%               
             } else  {
                 out.println("<h2> You seem to be an invalid user! </h2>");
             }
