@@ -19,7 +19,7 @@
     <body>
         <h2> Add Item to Inventory! </h2>
         <div>
-            <form>
+            <form action = "additemhandler.jsp">
                 <table>
                     <tr>
                         <td> New Item ID </td>
@@ -30,7 +30,7 @@
                     <tr>
                         <td> Category </td>
                         <td>
-                            <select>
+                            <select name = "category" >
                                 <option value ="pen"> Pen </option>
                                 <option value ="phone"> Phone </option>
                                 <option value ="watch"> Watch </option>
@@ -40,25 +40,25 @@
                     <tr>
                         <td> Model </td>
                         <td>
-                            <input type ="text" name ="id" />
+                            <input type ="text" name ="model" />
                         </td>
                     </tr>
                     <tr>
                         <td> Manufacturer </td>
                         <td>
-                            <input type ="text" name ="id" />
+                            <input type ="text" name ="manufacturer" />
                         </td>
                     </tr>
                     <tr>
                         <td> Price </td>
                         <td>
-                            <input type ="text" name ="id" />
+                            <input type ="text" name ="price" />
                         </td>
                     </tr>
                     <tr>
                         <td> Available Stock </td>
                         <td>
-                            <input type ="text" name ="id" />
+                            <input type ="text" name ="stock" />
                         </td>
                     </tr>
                     <tr>
