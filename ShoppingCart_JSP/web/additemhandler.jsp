@@ -4,6 +4,9 @@
     Author     : arjun
 --%>
 
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,8 +23,13 @@
             String price;
             String category;
             int stock;
+            
+            Connection con;
+            PreparedStatement ps;
+            String insertQuery;
+            int updateCount;
+            //insert into inventory(id, model, manufacturer, price, stock, category) values('pp_grip', 'Gripper', 'Cello', '10', 12, 'watch');
         %>
-        
         
         <%
             id = request.getParameter("id");
@@ -31,12 +39,26 @@
             category = request.getParameter("category");
             stock = Integer.parseInt(request.getParameter("stock"));
             
-            out.println("<br /> ID: " + id);
-            out.println("<br /> Model: " + model);
-            out.println("<br /> Manufacturer: " + manufacturer);
-            out.println("<br /> Price: " + price);
-            out.println("<br /> Category: " + category);
-            out.println("<br /> Stock: " + stock);
+            insertQuery = "insert into inventory(id, model, manufacturer, price, stock, category) values(?, ?, ?, ?, ?, ?)";
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/ShoppingCart", "keeper", "key");
+            ps = con.prepareStatement(insertQuery);
+            
+            ps.setString(1, id);
+            ps.setString(2, model);
+            ps.setString(3, manufacturer);
+            ps.setString(4, price);
+            ps.setInt(5, stock);
+            ps.setString(6, category);
+            
+            updateCount = ps.executeUpdate();
+            
+            out.println("<br /> " + updateCount + " rows updated! ");
+//            out.println("<br /> ID: " + id);
+//            out.println("<br /> Model: " + model);
+//            out.println("<br /> Manufacturer: " + manufacturer);
+//            out.println("<br /> Price: " + price);
+//            out.println("<br /> Category: " + category);
+//            out.println("<br /> Stock: " + stock);
         %>
         
         
