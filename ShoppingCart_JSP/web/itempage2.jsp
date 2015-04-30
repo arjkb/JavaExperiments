@@ -37,12 +37,12 @@
             String watches[] = request.getParameterValues("watch");
             shopItems.addAll(Arrays.asList(watches));
             session.setAttribute("purchase", shopItems);
-            
+                      
             ps.setString(1, "pen");
             
             rs = ps.executeQuery();
         %>
-        <form action = "checkout.jsp"> 
+        <form action = "itempage3.jsp"> 
             <table>
                 <tr>
                     <th> Select </th>
@@ -56,7 +56,7 @@
         %>
                 <tr>
                     <td> 
-                        <input type="checkbox" name ="watch" value= <%= rs.getString(1) %> />
+                        <input type="checkbox" name ="pen" value= <%= rs.getString(1) %> />
                     </td>
                     <td> <%= rs.getString(2) %> </td>
                     <td> <%= rs.getString(3) %> </td>
