@@ -21,18 +21,18 @@
         <%!
             Connection con;
             PreparedStatement ps;
-            String insQuery;
-            
             ResultSet rs;
+            String insQuery;
         %>
         <h1> Pen/Writing Instruments </h1>
         
         <%
+            //retrieve JDBC objects from session variables
             con = (Connection) session.getAttribute("connection");
             ps = (PreparedStatement) session.getAttribute("statement");
             insQuery = (String) session.getAttribute("insertQuery");
-        
-//        try {        
+            
+            //get shopping data from prev page and store them into session variable
             ArrayList shopItems = (ArrayList) session.getAttribute("purchase");
             String watches[] = request.getParameterValues("watch");
             shopItems.addAll(Arrays.asList(watches));
@@ -52,6 +52,7 @@
                     <th> Stock </th>
                 </tr>
         <%
+            //dynamically populate data from inventory
             while( rs.next() )  {
         %>
                 <tr>
@@ -66,42 +67,6 @@
         <%
             }
         %>
-<!--                <tr>
-                    <td> 
-                        <input type="checkbox" name ="pen" value="pp_cello"/>
-                    </td>
-                    <td> PinPoint </td>
-                    <td> Cello </td>
-                    <td> 10 </td>
-                    <td> 12 </td>
-                </tr>
-                <tr>
-                    <td> 
-                        <input type="checkbox" name ="pen" value="tt_cello"/>
-                    </td>
-                    <td> TechnoTip </td>
-                    <td> Cello </td>
-                    <td> 10 </td>
-                    <td> 12 </td>
-                </tr>
-                <tr>
-                    <td> 
-                        <input type="checkbox" name ="pen" value="g_mb"/>
-                    </td>
-                    <td> Gandhi </td>
-                    <td> Mont Blanc </td>
-                    <td> 14,00,000 </td>
-                    <td> 12 </td>
-                </tr>
-                <tr>
-                    <td> 
-                        <input type="checkbox" name ="pen" value="3302_cross"/>
-                    </td>
-                    <td> 3302 Classic </td>
-                    <td> Cross </td>
-                    <td> 2,545 </td>
-                    <td> 12 </td>
-                </tr>-->
                 <tr>
                     <td> </td>
                     <td> </td>
@@ -113,12 +78,6 @@
                 </tr>
             </table>
         </form>
-        
-        <%
-//            } catch(Exception E)    {
-//                E.printStackTrace();                
-//            }  
-        %>
 
     </body>
 </html>

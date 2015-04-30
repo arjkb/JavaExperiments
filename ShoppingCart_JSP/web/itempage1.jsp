@@ -34,6 +34,7 @@
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/ShoppingCart", "keeper", "key");
             ps = con.prepareStatement(insQuery);
             
+            //set up the JDBC objects as session variables
             session.setAttribute("connection", con);
             session.setAttribute("statement", ps);
             session.setAttribute("insertQuery", insQuery);
@@ -54,8 +55,9 @@
                 </tr>
                 
         <%
+            //dynamically populate data from inventory
             while( rs.next() )  {
-                %>
+        %>
                 <tr>
                     <td> 
                         <input type="checkbox" name ="watch" value= <%= rs.getString(1) %> />
@@ -65,46 +67,10 @@
                     <td> <%= rs.getString(4) %> </td>
                     <td> <%= rs.getString(5) %> </td>
                 </tr>
-                <%
+        <%
             }
         %>
-                
-<!--                <tr>
-                    <td> 
-                        <input type="checkbox" name ="watch" value="ym_rado"/>
-                    </td>
-                    <td> Yatchmaster </td>
-                    <td> Rolex </td>
-                    <td> 13,00,000 </td>
-                    <td> 12 </td>
-                </tr>
-                <tr>
-                    <td> 
-                        <input type="checkbox" name ="watch" value="ym_rado"/>
-                    </td>
-                    <td> Edifice </td>
-                    <td> Casio </td>
-                    <td> 10,000 </td>
-                    <td> 12 </td>
-                </tr>
-                <tr>
-                    <td> 
-                        <input type="checkbox" name ="watch" value="ym_rado"/>
-                    </td>
-                    <td> Enticer </td>
-                    <td> Casio </td>
-                    <td> 10,000 </td>
-                    <td> 12 </td>
-                </tr>
-                <tr>
-                    <td> 
-                        <input type="checkbox" name ="watch" value="ym_rado"/>
-                    </td>
-                    <td> Evidenza </td>
-                    <td> Longines </td>
-                    <td> 1,20,000 </td>
-                    <td> 12 </td>
-                </tr>-->
+          
                 <tr>
                     <td> </td>
                     <td> </td>
