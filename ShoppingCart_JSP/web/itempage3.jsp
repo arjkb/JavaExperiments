@@ -4,6 +4,9 @@
     Author     : arjun
 --%>
 
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,13 +17,30 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%!
+            Connection con;
+            PreparedStatement ps;
+            String insQuery;
+            
+            ResultSet rs;
+        %>
+        <h1> Phone </h1>
         <%
+            con = (Connection) session.getAttribute("connection");
+            ps = (PreparedStatement) session.getAttribute("statement");
+            insQuery = (String) session.getAttribute("insertQuery");
+                    
+            
             ArrayList shopItems = (ArrayList) session.getAttribute("purchase");
             String pens[] = request.getParameterValues("pen");
             shopItems.addAll(Arrays.asList(pens));
             session.setAttribute("purchase", shopItems);
+            
+            ps.setString(1, "phone");
+            
+            rs = ps.executeQuery();            
         %>    
-        <h1> Phone </h1>
+        
         
         <form action="checkout.jsp"> 
             <table>
@@ -31,7 +51,24 @@
                     <th> Price </th>
                     <th> Stock </th>
                 </tr>
+        <%
+            while( rs.next() )  {
+        %>
                 <tr>
+                    <td> 
+                        <input type="checkbox" name ="phone" value= <%= rs.getString(1) %> />
+                    </td>
+                    <td> <%= rs.getString(2) %> </td>
+                    <td> <%= rs.getString(3) %> </td>
+                    <td> <%= rs.getString(4) %> </td>
+                    <td> <%= rs.getString(5) %> </td>
+                </tr>
+        <%
+            }
+        %>
+
+
+<!--                <tr>
                     <td> 
                         <input type="checkbox" name ="phone" value="i6_apple"/>
                     </td>
@@ -66,7 +103,7 @@
                     <td> Microsoft </td>
                     <td> 23,544 </td>
                     <td> 12 </td>
-                </tr>
+                </tr>-->
                 <tr>
                     <td> </td>
                     <td> </td>
