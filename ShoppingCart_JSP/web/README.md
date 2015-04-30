@@ -1,4 +1,4 @@
-# Shopping Cart Application
+# Shopping Cart Web Application
 
 This is a prototype shopping cart application in JSP. 
 
