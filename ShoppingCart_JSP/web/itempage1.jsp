@@ -32,11 +32,11 @@
             insQuery = "select id, model, manufacturer, price, stock from inventory where category LIKE ? order by manufacturer";
             
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/ShoppingCart", "keeper", "key");
+            ps = con.prepareStatement(insQuery);
             
             session.setAttribute("connection", con);
             session.setAttribute("statement", ps);
-            
-            ps = con.prepareStatement(insQuery);
+            session.setAttribute("insertQuery", insQuery);
             
             ps.setString(1, "watch");
             
