@@ -35,7 +35,11 @@
             //get shopping data from prev page and store them into session variable
             ArrayList shopItems = (ArrayList) session.getAttribute("purchase");
             String watches[] = request.getParameterValues("watch");
-            shopItems.addAll(Arrays.asList(watches));
+            
+            if( watches != null )   {
+                shopItems.addAll(Arrays.asList(watches));
+            }
+            
             session.setAttribute("purchase", shopItems);
                       
             ps.setString(1, "pen");

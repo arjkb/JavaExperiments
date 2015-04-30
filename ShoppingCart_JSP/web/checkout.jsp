@@ -18,7 +18,11 @@
         <%
             ArrayList shopItems = (ArrayList) session.getAttribute("purchase");
             String phone[] = request.getParameterValues("phone");
-            shopItems.addAll(Arrays.asList(phone));
+            
+            if( phone != null ) {
+                shopItems.addAll(Arrays.asList(phone));                
+            }
+            
             session.setAttribute("purchase", shopItems);
         %>
         
