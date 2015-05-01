@@ -20,7 +20,7 @@
         <%!
             String id;
             String model, manufacturer;
-            String price;
+            int price;
             String category;
             int stock;
             
@@ -35,7 +35,7 @@
             id = request.getParameter("id");
             model = request.getParameter("model");
             manufacturer = request.getParameter("manufacturer");
-            price = request.getParameter("price");
+            price = Integer.parseInt(request.getParameter("price"));
             category = request.getParameter("category");
             stock = Integer.parseInt(request.getParameter("stock"));
             
@@ -46,7 +46,7 @@
             ps.setString(1, id);
             ps.setString(2, model);
             ps.setString(3, manufacturer);
-            ps.setString(4, price);
+            ps.setInt(4, price);
             ps.setInt(5, stock);
             ps.setString(6, category);
             
