@@ -23,6 +23,7 @@
                 %>
                 
                 <br /> <a href="addnewitem.jsp"> Add new item </a>
+                <br /> <a href=""> Update existing item </a>
                 
                 <%               
             } else  {
