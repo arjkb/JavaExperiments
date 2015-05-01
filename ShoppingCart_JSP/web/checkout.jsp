@@ -23,11 +23,15 @@
             PreparedStatement ps;
             ResultSet rs;
             
-            String selQuery;            
+            String selQuery;
+            
+            int totalPrice; //variable to store the total price of all the items
         %>
         <h1>Checkout Page</h1>
         
         <%
+            totalPrice = 0;
+            
             ArrayList shopItems = (ArrayList) session.getAttribute("purchase");
             String phone[] = request.getParameterValues("phone");
             
@@ -37,17 +41,49 @@
             
             session.setAttribute("purchase", shopItems);
             
+            selQuery = "select id, model, manufacturer, price from inventory where ID like ?";
             con = (Connection) session.getAttribute("connection");
-            ps = (PreparedStatement) session.getAttribute("statement");
-                        
+            ps = con.prepareStatement(selQuery);
+            shopItems = (ArrayList) session.getAttribute("purchase");            
         %>
         
         <%
-            shopItems = (ArrayList) session.getAttribute("purchase");
-            
-            for(int i = 0; i < shopItems.size(); i++)   {
-                out.println("<br /> " + shopItems.get(i));
-            }
+//            shopItems = (ArrayList) session.getAttribute("purchase");
+//            
+//            for(int i = 0; i < shopItems.size(); i++)   {
+//                out.println("<br /> " + shopItems.get(i));
+//            }
         %>
+        
+        <br />
+        <table>
+            <tr>
+                <th> ID </th>
+                <th> Model </th>
+                <th> Manufacturer </th>
+                <th> Price </th>
+            </tr>
+            
+            <%
+            for(int i = 0; i < shopItems.size(); i++)   {
+                ps.setString(1, (String) shopItems.get(i));
+                rs = ps.executeQuery();
+                if( rs.next() ) {
+                    totalPrice += rs.getInt(4);
+                    %>
+                    <tr>
+                        <td> <%= rs.getString(1) %> </td>
+                        <td> <%= rs.getString(2) %> </td>
+                        <td> <%= rs.getString(3) %> </td>
+                        <td> <%= rs.getInt(4) %> </td>
+                    </tr>                    
+                    <%                    
+                }
+            }
+
+            %>
+            
+        </table>
+        <p> Total Price: <%= totalPrice %> </p>
     </body>
 </html>
