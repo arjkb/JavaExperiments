@@ -4,6 +4,10 @@
     Author     : arjun
 --%>
 
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,7 +18,15 @@
         <title>Checkout Page</title>
     </head>
     <body>
+        <%!
+            Connection con;
+            PreparedStatement ps;
+            ResultSet rs;
+            
+            String selQuery;            
+        %>
         <h1>Checkout Page</h1>
+        
         <%
             ArrayList shopItems = (ArrayList) session.getAttribute("purchase");
             String phone[] = request.getParameterValues("phone");
@@ -24,6 +36,10 @@
             }
             
             session.setAttribute("purchase", shopItems);
+            
+            con = (Connection) session.getAttribute("connection");
+            ps = (PreparedStatement) session.getAttribute("statement");
+                        
         %>
         
         <%
