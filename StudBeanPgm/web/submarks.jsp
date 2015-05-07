@@ -20,6 +20,7 @@
         %>
         <h1>Hello World!</h1>
         <%
+            //get data from form
             roll = Integer.parseInt(request.getParameter("roll"));
             name = request.getParameter("name");
             marks = Integer.parseInt(request.getParameter("marks"));

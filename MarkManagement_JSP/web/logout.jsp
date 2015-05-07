@@ -19,4 +19,4 @@
             
         <h2> You have successfully logged out! </h2>
     </body>
-</html>
+    <%@ include file = "include/footer.html" %>
