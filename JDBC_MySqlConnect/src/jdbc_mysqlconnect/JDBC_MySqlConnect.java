@@ -25,14 +25,15 @@ public class JDBC_MySqlConnect {
             // TODO code application logic here
             
             String selQuery = "SELECT `SNO`,`NAME` FROM `MyTable`";
-            Class.forName("con.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/my_db", "root", "password");
             PreparedStatement ps = con.prepareStatement(selQuery);
             ResultSet rs = ps.executeQuery();
             
             while( rs.next() )  {
-                System.out.println("\n S.No: " + rs.getInt(1));
-                System.out.println("\n Name: " + rs.getString(2));
+                System.out.print("\n S.No: " + rs.getInt(1));
+                System.out.print("\n Name: " + rs.getString(2));
+                System.out.println();
             }
             
             
