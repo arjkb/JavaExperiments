@@ -10,10 +10,12 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -42,8 +44,7 @@ public class JavaFX_MyLoginForm extends Application {
             
             //create the scene with grid as root node
             Scene scene = new Scene(grid, 300, 275);
-            
-            
+                 
             //set the title for the page, along with font
             Text sceneTitle = new Text("Welcome");
             sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
@@ -61,6 +62,19 @@ public class JavaFX_MyLoginForm extends Application {
             
             PasswordField pwBox = new PasswordField();
             grid.add(pwBox, 1, 2);
+            
+            
+            //set up button and text
+            Button btn = new Button("Sign In");
+            HBox hBtn = new HBox(10);
+            hBtn.setAlignment(Pos.BOTTOM_RIGHT);
+            hBtn.getChildren().add(btn);
+            grid.add(hBtn, 1, 4);
+            
+            //text control for displaying the message   
+            final Text actionTarget = new Text();
+            grid.add(actionTarget, 1, 6);
+            
                         
             primaryStage.show();
     }
