@@ -7,6 +7,8 @@ package javafx_myloginform;
 
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,6 +18,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -50,9 +53,18 @@ public class JavaFX_MyLoginForm extends Application {
             grid.add(hBtn, 1, 4);
             
             //text control for displaying the message   
-            final Text actionTarget = new Text();
-            grid.add(actionTarget, 1, 6);
+            final Text actiontarget = new Text();
+            grid.add(actiontarget, 1, 6);
             
+            //handle button click event
+            btn.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    actiontarget.setFill(Color.FIREBRICK);
+                    actiontarget.setText("Sign in button pressed!");
+                }
+            });
             
             //create the scene with grid as root node
             Scene scene = new Scene(grid, 300, 275);
@@ -76,6 +88,7 @@ public class JavaFX_MyLoginForm extends Application {
             PasswordField pwBox = new PasswordField();
             grid.add(pwBox, 1, 2);
             
+            grid.setGridLinesVisible(false);
             
             
             primaryStage.show();
