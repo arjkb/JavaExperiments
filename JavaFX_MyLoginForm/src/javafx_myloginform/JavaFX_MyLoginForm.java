@@ -42,8 +42,21 @@ public class JavaFX_MyLoginForm extends Application {
             //space around the edges of the grid pane
             grid.setPadding(new Insets(25, 25, 25, 25));
             
+            //set up button and text
+            Button btn = new Button("Sign In");
+            HBox hBtn = new HBox(10);
+            hBtn.setAlignment(Pos.BOTTOM_RIGHT);
+            hBtn.getChildren().add(btn);
+            grid.add(hBtn, 1, 4);
+            
+            //text control for displaying the message   
+            final Text actionTarget = new Text();
+            grid.add(actionTarget, 1, 6);
+            
+            
             //create the scene with grid as root node
             Scene scene = new Scene(grid, 300, 275);
+            primaryStage.setScene(scene);
                  
             //set the title for the page, along with font
             Text sceneTitle = new Text("Welcome");
@@ -64,18 +77,7 @@ public class JavaFX_MyLoginForm extends Application {
             grid.add(pwBox, 1, 2);
             
             
-            //set up button and text
-            Button btn = new Button("Sign In");
-            HBox hBtn = new HBox(10);
-            hBtn.setAlignment(Pos.BOTTOM_RIGHT);
-            hBtn.getChildren().add(btn);
-            grid.add(hBtn, 1, 4);
             
-            //text control for displaying the message   
-            final Text actionTarget = new Text();
-            grid.add(actionTarget, 1, 6);
-            
-                        
             primaryStage.show();
     }
 
